@@ -751,6 +751,11 @@ export const ABOUT = {
     es: "La historia de Webb: de Brasil, en 2008, a Orlando, Miami y Dubái.",
   } as L,
   storyTitle: { en: "Our story", pt: "Nossa história", es: "Nuestra historia" } as L,
+  purpose: {
+    en: "We stay with each client before, during and after the purchase, in managing the property and in the decisions that follow.",
+    pt: "Acompanhamos cada cliente antes, durante e depois da compra, na administração do imóvel e nas decisões seguintes.",
+    es: "Acompañamos a cada cliente antes, durante y después de la compra, en la administración de la propiedad y en las decisiones siguientes.",
+  } as L,
   institutional: [
     {
       en: "Founded in 2015, Webb Florida Realty LLC is a licensed real estate brokerage in Florida, serving Orlando and Miami in the purchase, sale, investment and management of properties.",
