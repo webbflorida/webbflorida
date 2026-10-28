@@ -53,7 +53,7 @@ export default async function About({ params }: P) {
             <div className="portrait"><Photo slot="ramon" /></div>
           </div>
           <div>
-            <p className="body-lg">{ABOUT.broker[lang]}</p>
+            {ABOUT.broker[lang].split("\n\n").map((para) => <p className="body-lg" key={para.slice(0, 20)}>{para}</p>)}
             <ol className="principles">
               {HOME.principles.map((p, i) => (
                 <li key={p.en}><span>{roman[i]}</span>{p[lang]}</li>
