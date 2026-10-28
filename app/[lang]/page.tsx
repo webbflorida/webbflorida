@@ -55,7 +55,7 @@ export default async function Home({ params }: P) {
               <span>{SEARCH.price[lang]}</span>
               <select name="min" defaultValue="">
                 <option value="">{SEARCH.any[lang]}</option>
-                {[1, 2, 5, 10].map((n) => <option key={n} value={n * 1000000}>US$ {n}M+</option>)}
+                {[["500000", "US$ 500K+"], ["1000000", "US$ 1M+"], ["2000000", "US$ 2M+"], ["5000000", "US$ 5M+"]].map(([v, l]) => <option key={v} value={v}>{l}</option>)}
               </select>
             </label>
             <label>

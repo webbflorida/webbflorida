@@ -22,8 +22,8 @@ const SOURCES = [
   { mls: "stellar" as const, token: process.env.BRIDGE_TOKEN_STELLAR, dataset: process.env.BRIDGE_DATASET_STELLAR },
 ];
 
-// Faixa de alto padrão; ajustar com o Ramon.
-const MIN_PRICE = Number(process.env.MLS_MIN_PRICE || 1000000);
+// Preço mínimo opcional (Vercel: MLS_MIN_PRICE). Sem valor, mostra todas as faixas.
+const MIN_PRICE = Number(process.env.MLS_MIN_PRICE || 0);
 
 type Raw = Record<string, any>;
 

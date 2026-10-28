@@ -7,14 +7,14 @@ export type LL = Record<Locale, string[]>;
 
 export const HOME = {
   metaTitle: {
-    en: "Webb Florida Realty | High-End Real Estate Advisory in Orlando & Miami",
-    pt: "Webb Florida Realty | Consultoria imobiliária de alto padrão em Orlando e Miami",
-    es: "Webb Florida Realty | Asesoría inmobiliaria de alto nivel en Orlando y Miami",
+    en: "Webb Florida Realty | Real Estate in Orlando & Miami",
+    pt: "Webb Florida Realty | Imóveis em Orlando e Miami",
+    es: "Webb Florida Realty | Propiedades en Orlando y Miami",
   } as L,
   metaDescription: {
-    en: "Webb Florida Realty advises buyers, sellers and investors on high-end homes in Orlando and Miami, with service in English, Portuguese and Spanish.",
-    pt: "A Webb Florida Realty assessora compradores, vendedores e investidores em imóveis de alto padrão em Orlando e Miami, com atendimento em português, inglês e espanhol.",
-    es: "Webb Florida Realty asesora a compradores, vendedores e inversionistas en propiedades de alto nivel en Orlando y Miami, con atención en español, inglés y portugués.",
+    en: "Webb Florida Realty advises buyers, sellers and investors on homes in Orlando and Miami, with service in English, Portuguese and Spanish.",
+    pt: "A Webb Florida Realty assessora compradores, vendedores e investidores em imóveis em Orlando e Miami, com atendimento em português, inglês e espanhol.",
+    es: "Webb Florida Realty asesora a compradores, vendedores e inversionistas en propiedades en Orlando y Miami, con atención en español, inglés y portugués.",
   } as L,
   eyebrow: { en: "Orlando • Miami", pt: "Orlando • Miami", es: "Orlando • Miami" } as L,
   title: {
@@ -753,9 +753,9 @@ export const ABOUT = {
   storyTitle: { en: "Our story", pt: "Nossa história", es: "Nuestra historia" } as L,
   institutional: [
     {
-      en: "Founded in 2015, Webb Florida Realty LLC is a licensed real estate brokerage in Florida, serving Orlando and Miami in the purchase, sale, investment and management of high-end properties.",
-      pt: "Fundada em 2015, a Webb Florida Realty LLC é uma imobiliária licenciada na Flórida, com atuação em Orlando e Miami na compra, venda, investimento e administração de imóveis de alto padrão.",
-      es: "Fundada en 2015, Webb Florida Realty LLC es una inmobiliaria con licencia en Florida, con actuación en Orlando y Miami en la compra, venta, inversión y administración de propiedades de alto nivel.",
+      en: "Founded in 2015, Webb Florida Realty LLC is a licensed real estate brokerage in Florida, serving Orlando and Miami in the purchase, sale, investment and management of properties.",
+      pt: "Fundada em 2015, a Webb Florida Realty LLC é uma imobiliária licenciada na Flórida, com atuação em Orlando e Miami na compra, venda, investimento e administração de imóveis.",
+      es: "Fundada en 2015, Webb Florida Realty LLC es una inmobiliaria con licencia en Florida, con actuación en Orlando y Miami en la compra, venta, inversión y administración de propiedades.",
     },
     {
       en: "The company is part of the Webb Group, which began in Brazil in 2008 with Webb Imóveis, one of the first agencies in the country to present its properties online. In 2025, the group arrived in Dubai, in the United Arab Emirates, with Webb Real Estate.",
