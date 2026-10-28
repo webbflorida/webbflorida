@@ -118,7 +118,7 @@ export default async function Home({ params }: P) {
 
       <section className="family-strip">
         <div className="wrap">
-          <p className="family-label">{{ en: "The Webb family", pt: "Família Webb", es: "Familia Webb" }[lang]}</p>
+          <p className="family-label">{{ en: "Webb Group", pt: "Grupo Webb", es: "Grupo Webb" }[lang]}</p>
           <ul>
             {HOME.familyBrands.map((b) => (
               <li key={b.name}>

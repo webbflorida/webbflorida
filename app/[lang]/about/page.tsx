@@ -27,6 +27,9 @@ export default async function About({ params }: P) {
 
       <section className="sec">
         <div className="wrap">
+          <div className="institutional">
+            {ABOUT.institutional.map((p) => <p key={p.en}>{p[lang]}</p>)}
+          </div>
           <div className="chapters">
             {HOME.familyBrands.map((b, i) => (
               <div className="chapter" key={b.name}>
