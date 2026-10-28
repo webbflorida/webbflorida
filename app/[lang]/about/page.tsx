@@ -15,7 +15,6 @@ export async function generateMetadata({ params }: P) {
 export default async function About({ params }: P) {
   const lang = await getLang(params);
   const t = UI[lang];
-  const roman = ["I", "II", "III"];
   return (
     <Shell lang={lang} path="/about/">
       <section className="hero-photo area-hero">
@@ -28,20 +27,17 @@ export default async function About({ params }: P) {
       <section className="sec">
         <div className="wrap">
           <div className="institutional">
-            {ABOUT.institutional.map((p) => <p key={p.en}>{p[lang]}</p>)}
+            {ABOUT.institutional.slice(0, 2).map((p) => <p key={p.en}>{p[lang]}</p>)}
           </div>
-          <div className="chapters">
-            {HOME.familyBrands.map((b, i) => (
-              <div className="chapter" key={b.name}>
-                <div className="chapter-head">
-                  <span className="chapter-year">{b.note ? b.note[lang].replace(/\D/g, "") : ""}</span>
-                  <span className="k">{b.place[lang]}</span>
-                  <h3>{b.name}</h3>
-                </div>
-                <p>{HOME.familyStory[i][lang]}</p>
-              </div>
+          <ul className="timeline">
+            {HOME.familyBrands.map((b) => (
+              <li key={b.name}>
+                <span className="tl-year">{b.note ? b.note[lang].replace(/\D/g, "") : ""}</span>
+                <span className="fs-name">{b.name}</span>
+                <span className="fs-meta">{b.place[lang]}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -54,11 +50,6 @@ export default async function About({ params }: P) {
           </div>
           <div>
             {ABOUT.broker[lang].split("\n\n").map((para) => <p className="body-lg" key={para.slice(0, 20)}>{para}</p>)}
-            <ol className="principles">
-              {HOME.principles.map((p, i) => (
-                <li key={p.en}><span>{roman[i]}</span>{p[lang]}</li>
-              ))}
-            </ol>
           </div>
         </div>
       </section>
