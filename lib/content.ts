@@ -752,9 +752,9 @@ export const ABOUT = {
   } as L,
   storyTitle: { en: "Our story", pt: "Nossa história", es: "Nuestra historia" } as L,
   purpose: {
-    en: "After the purchase, Webb manages its clients' properties: leasing, maintenance and monthly owner statements.",
-    pt: "Depois da compra, a Webb administra os imóveis de seus clientes: locação, manutenção e prestação de contas mensal.",
-    es: "Después de la compra, Webb administra las propiedades de sus clientes: alquiler, mantenimiento y rendición de cuentas mensual.",
+    en: "Beyond brokering transactions, Webb Florida Realty maintains an ongoing relationship with its clients, providing leasing, management and property administration services after the purchase.",
+    pt: "Mais do que intermediar transações, a Webb Florida Realty mantém uma relação contínua com seus clientes, com serviços de locação, administração e gestão de imóveis após a compra.",
+    es: "Más que intermediar transacciones, Webb Florida Realty mantiene una relación continua con sus clientes, con servicios de alquiler, administración y gestión de propiedades después de la compra.",
   } as L,
   institutional: [
     {
