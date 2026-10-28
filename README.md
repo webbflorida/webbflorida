@@ -10,3 +10,7 @@ Next.js 15 (App Router), 3 idiomas (/en, /pt, /es), páginas estáticas.
 - Deploy: Vercel (conta do Ramon). DNS só muda no lançamento.
 
 Sem seção de Reformas (decisão do Ramon, 26/10/2026).
+
+## Lançamento
+- Enquanto `SITE_LIVE` não estiver definida, o robots.txt bloqueia buscadores.
+- No lançamento: na Vercel, Settings → Environment Variables, criar `SITE_LIVE` = `1`, publicar de novo e apontar o DNS.
