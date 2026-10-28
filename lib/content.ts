@@ -758,19 +758,14 @@ export const ABOUT = {
   } as L,
   institutional: [
     {
-      en: "Founded in 2015, Webb Florida Realty LLC is a licensed real estate brokerage in Florida, serving Orlando and Miami in the purchase, sale, investment and management of properties.",
-      pt: "Fundada em 2015, a Webb Florida Realty LLC é uma imobiliária licenciada na Flórida, com atuação em Orlando e Miami na compra, venda, investimento e administração de imóveis.",
-      es: "Fundada en 2015, Webb Florida Realty LLC es una inmobiliaria con licencia en Florida, con actuación en Orlando y Miami en la compra, venta, inversión y administración de propiedades.",
+      en: "Founded in 2015, Webb Florida Realty LLC is a real estate brokerage licensed in the State of Florida. The company operates in Orlando and Miami in the purchase, sale, investment and management of properties, serving clients based in the United States and abroad.",
+      pt: "Fundada em 2015, a Webb Florida Realty LLC é uma imobiliária licenciada no Estado da Flórida. A empresa atua em Orlando e Miami na compra, venda, investimento e administração de imóveis, atendendo clientes residentes nos Estados Unidos e no exterior.",
+      es: "Fundada en 2015, Webb Florida Realty LLC es una inmobiliaria con licencia en el Estado de Florida. La empresa actúa en Orlando y Miami en la compra, venta, inversión y administración de propiedades, atendiendo a clientes residentes en Estados Unidos y en el exterior.",
     },
     {
-      en: "The company is part of the Webb Group, which began in Brazil in 2008 with Webb Imóveis, one of the first agencies in the region to present its properties online. In 2025, the group arrived in Dubai, in the United Arab Emirates, with Webb Real Estate.",
-      pt: "A empresa integra o Grupo Webb, iniciado no Brasil em 2008 com a Webb Imóveis, uma das primeiras imobiliárias da região a apresentar seus imóveis na internet. Em 2025, o grupo chegou a Dubai, nos Emirados Árabes Unidos, com a Webb Real Estate.",
-      es: "La empresa integra el Grupo Webb, iniciado en Brasil en 2008 con Webb Imóveis, una de las primeras inmobiliarias de la región en presentar sus propiedades en internet. En 2025, el grupo llegó a Dubái, en los Emiratos Árabes Unidos, con Webb Real Estate.",
-    },
-    {
-      en: "Led by broker Ramon Brandão, Webb Florida Realty serves families, investors and international buyers in English, Portuguese and Spanish, guiding each client from choosing the property to the closing, and in managing their assets afterwards.",
-      pt: "Sob a direção do broker Ramon Brandão, a Webb Florida Realty atende famílias, investidores e compradores internacionais em português, inglês e espanhol, acompanhando cada cliente da escolha do imóvel ao fechamento e na gestão do patrimônio depois dele.",
-      es: "Bajo la dirección del broker Ramon Brandão, Webb Florida Realty atiende a familias, inversionistas y compradores internacionales en español, portugués e inglés, acompañando a cada cliente desde la elección de la propiedad hasta el cierre y en la gestión de su patrimonio después.",
+      en: "Webb Florida Realty is part of the Webb Group, with operations in Brazil, the United States and the United Arab Emirates. The group's origins date back to 2008, with the founding of Webb Imóveis, one of the first agencies in the region to present its properties online.",
+      pt: "A Webb Florida Realty integra o Grupo Webb, com operações no Brasil, nos Estados Unidos e nos Emirados Árabes Unidos. A origem do grupo remonta a 2008, com a fundação da Webb Imóveis, uma das primeiras imobiliárias da região a apresentar seus imóveis na internet.",
+      es: "Webb Florida Realty integra el Grupo Webb, con operaciones en Brasil, Estados Unidos y los Emiratos Árabes Unidos. El origen del grupo se remonta a 2008, con la fundación de Webb Imóveis, una de las primeras inmobiliarias de la región en presentar sus propiedades en internet.",
     },
   ] as L[],
   story: [

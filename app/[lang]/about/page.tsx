@@ -30,7 +30,7 @@ export default async function About({ params }: P) {
             <p className="purpose-line">Beyond the closing.</p>
           </div>
           <div className="institutional">
-            {ABOUT.institutional.slice(0, 2).map((p) => <p key={p.en}>{p[lang]}</p>)}
+            {ABOUT.institutional.map((p) => <p key={p.en}>{p[lang]}</p>)}
           </div>
           <ul className="timeline">
             {HOME.familyBrands.map((b) => (
