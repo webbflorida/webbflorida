@@ -758,9 +758,9 @@ export const ABOUT = {
       es: "Fundada en 2015, Webb Florida Realty LLC es una inmobiliaria con licencia en Florida, con actuación en Orlando y Miami en la compra, venta, inversión y administración de propiedades.",
     },
     {
-      en: "The company is part of the Webb Group, which began in Brazil in 2008 with Webb Imóveis, one of the first agencies in the country to present its properties online. In 2025, the group arrived in Dubai, in the United Arab Emirates, with Webb Real Estate.",
-      pt: "A empresa integra o Grupo Webb, iniciado no Brasil em 2008 com a Webb Imóveis, uma das primeiras imobiliárias do país a apresentar seus imóveis na internet. Em 2025, o grupo chegou a Dubai, nos Emirados Árabes Unidos, com a Webb Real Estate.",
-      es: "La empresa integra el Grupo Webb, iniciado en Brasil en 2008 con Webb Imóveis, una de las primeras inmobiliarias del país en presentar sus propiedades en internet. En 2025, el grupo llegó a Dubái, en los Emiratos Árabes Unidos, con Webb Real Estate.",
+      en: "The company is part of the Webb Group, which began in Brazil in 2008 with Webb Imóveis, one of the first agencies in the region to present its properties online. In 2025, the group arrived in Dubai, in the United Arab Emirates, with Webb Real Estate.",
+      pt: "A empresa integra o Grupo Webb, iniciado no Brasil em 2008 com a Webb Imóveis, uma das primeiras imobiliárias da região a apresentar seus imóveis na internet. Em 2025, o grupo chegou a Dubai, nos Emirados Árabes Unidos, com a Webb Real Estate.",
+      es: "La empresa integra el Grupo Webb, iniciado en Brasil en 2008 con Webb Imóveis, una de las primeras inmobiliarias de la región en presentar sus propiedades en internet. En 2025, el grupo llegó a Dubái, en los Emiratos Árabes Unidos, con Webb Real Estate.",
     },
     {
       en: "Led by broker Ramon Brandão, Webb Florida Realty serves families, investors and international buyers in English, Portuguese and Spanish, guiding each client from choosing the property to the closing, and in managing their assets afterwards.",
