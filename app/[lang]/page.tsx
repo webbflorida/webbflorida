@@ -6,6 +6,19 @@ import { UI } from "@/lib/ui";
 import { AREAS, HOME } from "@/lib/content";
 import { GUIDES } from "@/lib/guides";
 
+const SEARCH = {
+  region: { en: "Location", pt: "Região", es: "Ubicación" },
+  all: { en: "All areas", pt: "Todas as regiões", es: "Todas las zonas" },
+  allOf: { en: "All of", pt: "Toda", es: "Todo" },
+  price: { en: "Price", pt: "Preço", es: "Precio" },
+  any: { en: "Any", pt: "Qualquer", es: "Cualquiera" },
+  type: { en: "Type", pt: "Tipo", es: "Tipo" },
+  house: { en: "House", pt: "Casa", es: "Casa" },
+  condo: { en: "Condo", pt: "Apartamento", es: "Apartamento" },
+  land: { en: "Land", pt: "Terreno", es: "Terreno" },
+  go: { en: "Search", pt: "Buscar", es: "Buscar" },
+};
+
 type P = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: P) {
@@ -25,6 +38,37 @@ export default async function Home({ params }: P) {
         <div className="wrap">
           <p className="eyebrow">{HOME.eyebrow[lang]}</p>
           <h1>{HOME.title[lang]}</h1>
+          <form className="hero-search" action={`/${lang}/homes/`} method="get" role="search">
+            <label>
+              <span>{SEARCH.region[lang]}</span>
+              <select name="area" defaultValue="">
+                <option value="">{SEARCH.all[lang]}</option>
+                {markets.map((m) => (
+                  <optgroup key={m.r} label={m.r}>
+                    <option value={m.r.toLowerCase()}>{SEARCH.allOf[lang]} {m.r}</option>
+                    {m.items.map((a) => <option key={a.slug} value={a.slug}>{a.name}</option>)}
+                  </optgroup>
+                ))}
+              </select>
+            </label>
+            <label>
+              <span>{SEARCH.price[lang]}</span>
+              <select name="min" defaultValue="">
+                <option value="">{SEARCH.any[lang]}</option>
+                {[1, 2, 5, 10].map((n) => <option key={n} value={n * 1000000}>US$ {n}M+</option>)}
+              </select>
+            </label>
+            <label>
+              <span>{SEARCH.type[lang]}</span>
+              <select name="type" defaultValue="">
+                <option value="">{SEARCH.any[lang]}</option>
+                <option value="house">{SEARCH.house[lang]}</option>
+                <option value="condo">{SEARCH.condo[lang]}</option>
+                <option value="land">{SEARCH.land[lang]}</option>
+              </select>
+            </label>
+            <button type="submit">{SEARCH.go[lang]}</button>
+          </form>
           <a className="link-cta" href={`/${lang}/contact/`}>{t.cta.talk}</a>
         </div>
       </section>

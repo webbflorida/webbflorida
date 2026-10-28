@@ -319,3 +319,17 @@ p{margin:0 0 1em}
 .legal-links{display:flex;flex-wrap:wrap;gap:10px 24px}
 .legal a{color:var(--navy-muted);text-decoration:none}
 .legal a:hover{color:#fff}
+
+/* busca na capa (estilo Sotheby's, discreta) */
+.hero-search{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;max-width:880px;margin:0 auto 36px;background:rgba(243,238,230,.96);color:var(--navy);text-align:left;border:1px solid rgba(205,178,138,.6)}
+.hero-search label{display:flex;flex-direction:column;gap:2px;padding:14px 20px;border-right:1px solid rgba(14,34,56,.12);cursor:pointer}
+.hero-search label span{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.hero-search select{appearance:none;-webkit-appearance:none;border:0;background:transparent;font:inherit;font-size:15px;color:var(--navy);padding:2px 0;cursor:pointer;outline:none}
+.hero-search button{border:0;background:var(--navy);color:#F3EEE6;font:inherit;font-size:12px;letter-spacing:.2em;text-transform:uppercase;padding:0 32px;cursor:pointer}
+.hero-search button:hover{background:#16314f}
+@media (max-width:760px){
+  .hero-search{grid-template-columns:1fr 1fr;margin-bottom:28px}
+  .hero-search label:first-child{grid-column:1/-1;border-right:0;border-bottom:1px solid rgba(14,34,56,.12)}
+  .hero-search label:nth-child(3){border-right:0}
+  .hero-search button{grid-column:1/-1;padding:16px}
+}
