@@ -752,9 +752,9 @@ export const ABOUT = {
   } as L,
   storyTitle: { en: "Our story", pt: "Nossa história", es: "Nuestra historia" } as L,
   purpose: {
-    en: "Our work does not end at the closing: we continue with each client in managing the property and their real estate assets.",
-    pt: "Nosso trabalho não termina no fechamento: seguimos com o cliente na administração do imóvel e na gestão do seu patrimônio.",
-    es: "Nuestro trabajo no termina en el cierre: seguimos con el cliente en la administración de la propiedad y en la gestión de su patrimonio.",
+    en: "After the purchase, Webb manages its clients' properties: leasing, maintenance and monthly owner statements.",
+    pt: "Depois da compra, a Webb administra os imóveis de seus clientes: locação, manutenção e prestação de contas mensal.",
+    es: "Después de la compra, Webb administra las propiedades de sus clientes: alquiler, mantenimiento y rendición de cuentas mensual.",
   } as L,
   institutional: [
     {
