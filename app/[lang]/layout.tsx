@@ -4,6 +4,7 @@ import { HTML_LANG, LOCALES, isLocale } from "@/lib/site";
 import { UI } from "@/lib/ui";
 import { orgJsonLd } from "@/lib/seo";
 import JsonLd from "@/components/JsonLd";
+import SourceTracker from "@/components/SourceTracker";
 
 // Google Analytics: código "G-XXXX" cadastrado na Vercel como NEXT_PUBLIC_GA_ID. Sem ele, nada é carregado.
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "";
@@ -31,6 +32,7 @@ export default async function LangLayout({ children, params }: { children: React
       </head>
       <body>
         <div className="preview">{UI[lang].preview}</div>
+        <SourceTracker />
         {children}
       </body>
     </html>

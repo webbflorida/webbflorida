@@ -17,7 +17,8 @@ export default function ContactForm({ lang, t, goals, note }: { lang: string; t:
     const data = new URLSearchParams();
     new FormData(e.currentTarget).forEach((v, k) => data.append(k, String(v)));
     data.append("lang", lang);
-    data.append("page", typeof document !== "undefined" ? document.referrer || location.pathname : "");
+    data.append("page", location.pathname);
+    try { data.append("source", localStorage.getItem("wf_src") || ""); } catch {}
     try {
       await fetch(LEAD_URL, { method: "POST", mode: "no-cors", body: data });
       setState("sent");
