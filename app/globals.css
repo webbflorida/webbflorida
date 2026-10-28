@@ -333,3 +333,15 @@ p{margin:0 0 1em}
   .hero-search label:nth-child(3){border-right:0}
   .hero-search button{grid-column:1/-1;padding:16px}
 }
+
+/* faixa institucional da família Webb (home) */
+.family-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:36px 0;text-align:center}
+.family-label{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin:0 0 18px}
+.family-strip ul{list-style:none;margin:0;padding:0;display:flex;justify-content:center;flex-wrap:wrap}
+.family-strip li{padding:4px 36px;display:flex;flex-direction:column;gap:2px}
+.family-strip li+li{border-left:1px solid var(--line)}
+.fs-name{font-family:var(--display);font-size:20px;letter-spacing:.02em}
+.fs-meta{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.fs-link{display:inline-block;margin-top:18px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
+.fs-link:hover{color:var(--ink)}
+@media (max-width:640px){.family-strip li{padding:10px 0;width:100%}.family-strip li+li{border-left:0;border-top:1px solid var(--line)}}

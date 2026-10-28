@@ -116,22 +116,18 @@ export default async function Home({ params }: P) {
         </div>
       </section>
 
-      <section className="sec sec-alt">
-        <div className="wrap" style={{ textAlign: "center" }}>
-          <p className="eyebrow">{HOME.familyTitle[lang]}</p>
-          <h2>{HOME.familyHeading[lang]}</h2>
-          <div className="story-text">
-            {HOME.familyStory.map((p) => <p key={p.en}>{p[lang]}</p>)}
-          </div>
-          <div className="brands">
+      <section className="family-strip">
+        <div className="wrap">
+          <p className="family-label">{{ en: "The Webb family", pt: "Família Webb", es: "Familia Webb" }[lang]}</p>
+          <ul>
             {HOME.familyBrands.map((b) => (
-              <div className="brand-col" key={b.name}>
-                <span className="k">{b.place[lang]}</span>
-                <h3>{b.name}</h3>
-                {b.note && <p>{b.note[lang]}</p>}
-              </div>
+              <li key={b.name}>
+                <span className="fs-name">{b.name}</span>
+                <span className="fs-meta">{b.place[lang]}{b.note ? ` · ${b.note[lang].toLowerCase()}` : ""}</span>
+              </li>
             ))}
-          </div>
+          </ul>
+          <a className="fs-link" href={`/${lang}/about/`}>{HOME.familyTitle[lang]}</a>
         </div>
       </section>
 
