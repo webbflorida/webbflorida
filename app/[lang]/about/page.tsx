@@ -28,7 +28,6 @@ export default async function About({ params }: P) {
         <div className="wrap">
           <div className="purpose">
             <p className="purpose-line">Beyond the closing.</p>
-            <p>{ABOUT.purpose[lang]}</p>
           </div>
           <div className="institutional">
             {ABOUT.institutional.slice(0, 2).map((p) => <p key={p.en}>{p[lang]}</p>)}
