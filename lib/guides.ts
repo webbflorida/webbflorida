@@ -68,9 +68,9 @@ export const GUIDES: Guide[] = [
       {
         h: { en: "6. After you buy", pt: "6. Depois da compra", es: "6. Después de la compra" },
         p: {
-          en: "Plan for insurance, property tax and, if you rent, a property manager and rental tax registration. When a foreign owner sells in the future, the buyer generally must withhold part of the price under FIRPTA, which your accountant can help you plan for.",
-          pt: "Programe seguro, property tax e, se for alugar, administração e registro para os impostos de aluguel. Quando um proprietário estrangeiro vende no futuro, em geral o comprador precisa reter parte do preço pela lei FIRPTA. Seu contador pode ajudar nesse planejamento.",
-          es: "Planifique el seguro, el property tax y, si va a alquilar, la administración y el registro para impuestos de alquiler. Cuando un propietario extranjero vende en el futuro, en general el comprador debe retener parte del precio según la ley FIRPTA. Su contador puede ayudarle a planificarlo.",
+          en: "Plan for insurance, property tax and, if you rent, property management. Taxes in the U.S. and in your country should be planned with your accountant.",
+          pt: "Programe seguro, property tax e, se for alugar, a administração do imóvel. Os impostos nos EUA e no seu país devem ser planejados com o seu contador.",
+          es: "Planifique el seguro, el property tax y, si va a alquilar, la administración del inmueble. Los impuestos en EE. UU. y en su país deben planificarse con su contador.",
         },
       },
     ],
