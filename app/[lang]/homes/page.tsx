@@ -5,6 +5,7 @@ import { pageMeta } from "@/lib/seo";
 import { UI } from "@/lib/ui";
 import { HOME, HOMES } from "@/lib/content";
 import { getListings } from "@/lib/mls";
+import { FEATURED } from "@/lib/featured";
 
 type P = { params: Promise<{ lang: string }> };
 
@@ -20,6 +21,12 @@ export default async function Homes({ params }: P) {
   const L = {
     bd: { en: "bd", pt: "quartos", es: "hab." }[lang],
     ba: { en: "ba", pt: "banheiros", es: "baños" }[lang],
+    nc: { en: "New construction, ready to move in", pt: "Construção nova, pronta para morar", es: "Construcción nueva, lista para mudarse" }[lang],
+    ncNote: {
+      en: "Homes sold by the builder. Prices provided by the builder and subject to change.",
+      pt: "Imóveis vendidos pela construtora. Preços informados pela construtora, sujeitos a alteração.",
+      es: "Casas vendidas por el constructor. Precios informados por el constructor, sujetos a cambios.",
+    }[lang],
     by: { en: "Listed by", pt: "Anunciado por", es: "Listado por" }[lang],
     disc: {
       en: "Listing information is provided by the MLS and deemed reliable but not guaranteed.",
@@ -30,6 +37,24 @@ export default async function Homes({ params }: P) {
   return (
     <Shell lang={lang} path="/homes/">
       <PageHero lang={lang} title={HOMES.title[lang]} lead={HOMES.lead[lang]} />
+      {FEATURED.length > 0 && (
+        <section className="sec">
+          <div className="wrap">
+            <p className="eyebrow">{L.nc}</p>
+            <div className="area-cards" style={{ marginTop: 24 }}>
+              {FEATURED.map((h) => (
+                <a className="area-card" key={h.slug} href={`/${lang}/homes/${h.slug}/`}>
+                  <div className="area-card-photo"><img className="photo" src={h.photos[0].src} alt={h.title[lang]} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} /></div>
+                  <h3>{money.format(h.price)}</h3>
+                  <p>{h.title[lang]}</p>
+                  <p className="muted" style={{ fontSize: 13, marginTop: -8 }}>{h.city[lang]} · {h.sqft.toLocaleString(lang === "en" ? "en-US" : "pt-BR")} sq ft</p>
+                </a>
+              ))}
+            </div>
+            <p className="pd-legal">{L.ncNote}</p>
+          </div>
+        </section>
+      )}
       <section className="sec">
         <div className="wrap">
           {listings.length > 0 ? (
