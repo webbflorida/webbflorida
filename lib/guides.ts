@@ -36,9 +36,9 @@ export const GUIDES: Guide[] = [
       {
         h: { en: "2. Cash or financing", pt: "2. À vista ou financiado", es: "2. Al contado o financiado" },
         p: {
-          en: "Cash buyers show proof of funds. If you finance, look for lenders with foreign national programs; they usually ask for a larger down payment than for U.S. residents, along with bank statements and income documentation from your country.",
-          pt: "Quem compra à vista apresenta comprovante de recursos. Para financiar, procure bancos com programas para estrangeiros. Eles costumam pedir uma entrada maior do que para residentes nos EUA, além de extratos e comprovação de renda do seu país.",
-          es: "Quien compra al contado presenta prueba de fondos. Para financiar, busque bancos con programas para extranjeros. Suelen pedir un pago inicial mayor que a los residentes en EE. UU., además de estados de cuenta y comprobantes de ingresos de su país.",
+          en: "Cash buyers show proof of funds. If you finance, look for lenders with foreign national programs; they usually ask for a down payment of 25% to 40% of the price, along with bank statements and income documentation from your country.",
+          pt: "Quem compra à vista apresenta comprovante de recursos. Para financiar, procure bancos com programas para estrangeiros. Eles costumam pedir entrada de 25% a 40% do valor, além de extratos e comprovação de renda do seu país.",
+          es: "Quien compra al contado presenta prueba de fondos. Para financiar, busque bancos con programas para extranjeros. Suelen pedir un pago inicial del 25% al 40% del precio, además de estados de cuenta y comprobantes de ingresos de su país.",
         },
       },
       {
