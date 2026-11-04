@@ -17,13 +17,16 @@ export type Listing = {
   officeName?: string; // imobiliária responsável (exigência do IDX)
 };
 
+// Preço mínimo por MLS (decisão do Ramon, 04/11/2026): Miami US$ 550 mil, Orlando US$ 350 mil.
+// Para mudar sem mexer no código: Vercel → MLS_MIN_PRICE_MIAMI / MLS_MIN_PRICE_STELLAR.
 const SOURCES = [
-  { mls: "miami" as const, token: process.env.BRIDGE_TOKEN_MIAMI, dataset: process.env.BRIDGE_DATASET_MIAMI },
-  { mls: "stellar" as const, token: process.env.BRIDGE_TOKEN_STELLAR, dataset: process.env.BRIDGE_DATASET_STELLAR },
+  { mls: "miami" as const, token: process.env.BRIDGE_TOKEN_MIAMI, dataset: process.env.BRIDGE_DATASET_MIAMI, min: Number(process.env.MLS_MIN_PRICE_MIAMI || 550000) },
+  { mls: "stellar" as const, token: process.env.BRIDGE_TOKEN_STELLAR, dataset: process.env.BRIDGE_DATASET_STELLAR, min: Number(process.env.MLS_MIN_PRICE_STELLAR || 350000) },
 ];
 
-// Preço mínimo opcional (Vercel: MLS_MIN_PRICE). Sem valor, mostra todas as faixas.
-const MIN_PRICE = Number(process.env.MLS_MIN_PRICE || 0);
+export const MLS_READY = SOURCES.some((s) => s.token && s.dataset);
+
+export type Search = { mls?: Listing["mls"]; minPrice?: number; maxPrice?: number; beds?: number };
 
 type Raw = Record<string, any>;
 
@@ -42,15 +45,23 @@ function toListing(mls: Listing["mls"], r: Raw): Listing {
   };
 }
 
-export async function getListings(limit = 12): Promise<Listing[]> {
+export async function getListings(search: Search = {}, limit = 24): Promise<Listing[]> {
   const out: Listing[] = [];
   for (const s of SOURCES) {
     if (!s.token || !s.dataset) continue;
+    if (search.mls && search.mls !== s.mls) continue;
+    const f = [
+      "StandardStatus eq 'Active'",
+      "PropertyType eq 'Residential'",
+      `ListPrice ge ${Math.max(s.min, search.minPrice || 0)}`,
+    ];
+    if (search.maxPrice) f.push(`ListPrice le ${search.maxPrice}`);
+    if (search.beds) f.push(`BedroomsTotal ge ${search.beds}`);
     const q = new URLSearchParams({
       access_token: s.token,
       $top: String(limit),
       $orderby: "ModificationTimestamp desc",
-      $filter: `StandardStatus eq 'Active' and ListPrice ge ${MIN_PRICE}`,
+      $filter: f.join(" and "),
     });
     try {
       const res = await fetch(`https://api.bridgedataoutput.com/api/v2/OData/${s.dataset}/Property?${q}`, {
