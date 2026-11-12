@@ -1,14 +1,14 @@
 import type { L, LL } from "./content";
 
-// Projetos em Dubai. Valores e condições vêm do site ramonbrandao.global (11/2026) e precisam ser
-// confirmados com a incorporadora antes de publicar. Cada anúncio exige o permit da RERA (Trakheesi).
+// Projetos em Dubai. Valores "a partir de" de portal (ezre.ae, 12/11/2026), iguais aos do ramonbrandao.global,
+// até chegar a tabela oficial da incorporadora. Cada anúncio exige o permit da RERA (Trakheesi).
 export type Project = {
   slug: string;
   name: string;
   area: string;
   permit: string;
   from: { aed: string; usd: string };
-  delivery?: string;
+  delivery?: L;
   plan?: string;
   short: L;
   intro: L;
@@ -22,9 +22,9 @@ export const PROJECTS: Project[] = [
     name: "Sunset Bay Grand",
     area: "Dubai Islands",
     permit: "[RERA permit]",
-    from: { aed: "AED 2,389,326", usd: "US$ 650,000" },
-    delivery: "2027",
-    plan: "60/40",
+    from: { aed: "AED 2,467,484", usd: "US$ 672,000" },
+    delivery: { en: "Q4 2027", pt: "4º tri 2027", es: "4T 2027" },
+    plan: "20/30/50",
     short: {
       en: "Waterfront residences in Dubai Islands.",
       pt: "Residências frente ao mar em Dubai Islands.",
@@ -36,14 +36,14 @@ export const PROJECTS: Project[] = [
       es: "Sunset Bay Grand es un desarrollo frente al mar en Dubai Islands, con vista panorámica y amenidades de resort. Es para quien quiere vivir, pasar temporadas o alquilar.",
     },
     units: {
-      en: "1 and 2-bedroom apartments and 3-bedroom duplexes with rooftop.",
-      pt: "Apartamentos de 1 e 2 quartos e duplex de 3 suítes com rooftop.",
-      es: "Apartamentos de 1 y 2 habitaciones y dúplex de 3 suites con rooftop.",
+      en: "1-bedroom from AED 2,467,484 and 2-bedroom from AED 3,376,098. 3-bedroom duplexes with rooftop on request.",
+      pt: "1 quarto a partir de AED 2.467.484 e 2 quartos a partir de AED 3.376.098. Duplex de 3 suítes com rooftop sob consulta.",
+      es: "1 habitación desde AED 2.467.484 y 2 habitaciones desde AED 3.376.098. Dúplex de 3 suites con rooftop bajo consulta.",
     },
     highlights: {
-      en: ["Waterfront location in Dubai Islands", "Panoramic sea views", "Pools, spa, gym and lounges", "Private parking for residents", "Payment plan during construction (60/40)"],
-      pt: ["Frente ao mar em Dubai Islands", "Vista panorâmica para o mar", "Piscinas, spa, academia e lounges", "Estacionamento privativo para moradores", "Pagamento durante a obra (60/40)"],
-      es: ["Frente al mar en Dubai Islands", "Vista panorámica al mar", "Piscinas, spa, gimnasio y lounges", "Estacionamiento privado para residentes", "Pago durante la obra (60/40)"],
+      en: ["Waterfront location in Dubai Islands", "Panoramic sea views", "Pools, spa, gym and lounges", "Private parking for residents", "Payment plan during construction (20/30/50)"],
+      pt: ["Frente ao mar em Dubai Islands", "Vista panorâmica para o mar", "Piscinas, spa, academia e lounges", "Estacionamento privativo para moradores", "Pagamento durante a obra (20/30/50)"],
+      es: ["Frente al mar en Dubai Islands", "Vista panorámica al mar", "Piscinas, spa, gimnasio y lounges", "Estacionamiento privado para residentes", "Pago durante la obra (20/30/50)"],
     },
   },
   {
@@ -51,7 +51,9 @@ export const PROJECTS: Project[] = [
     name: "Azizi Milan",
     area: "Dubai Land",
     permit: "[RERA permit]",
-    from: { aed: "AED 650,000", usd: "US$ 177,000" },
+    from: { aed: "AED 738,000", usd: "US$ 201,000" },
+    delivery: { en: "Q4 2029", pt: "4º tri 2029", es: "4T 2029" },
+    plan: "50/50 · 60/40",
     short: {
       en: "Studios and 1-bedroom units in Dubai Land.",
       pt: "Studios e unidades de 1 quarto em Dubai Land.",

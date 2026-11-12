@@ -30,7 +30,7 @@ export default async function Project({ params }: P) {
   const facts: [string, string][] = [
     [project.from.aed, `${P_UI.from[lang]} · ${project.from.usd}`],
     [project.area, "Dubai"],
-    ...(project.delivery ? [[project.delivery, P_UI.delivery[lang]] as [string, string]] : []),
+    ...(project.delivery ? [[project.delivery[lang], P_UI.delivery[lang]] as [string, string]] : []),
     ...(project.plan ? [[project.plan, P_UI.plan[lang]] as [string, string]] : []),
   ];
   return (
