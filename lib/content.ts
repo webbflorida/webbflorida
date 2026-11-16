@@ -18,14 +18,14 @@ export const HOME = {
   } as L,
   eyebrow: { en: "Orlando • Miami", pt: "Orlando • Miami", es: "Orlando • Miami" } as L,
   title: {
-    en: "Beyond the closing.",
-    pt: "Beyond the closing.",
-    es: "Beyond the closing.",
+    en: "Real estate in Orlando and Miami.",
+    pt: "Imóveis em Orlando e Miami.",
+    es: "Propiedades en Orlando y Miami.",
   } as L,
   lead: {
-    en: "Buying, selling and managing homes in Orlando and Miami.",
-    pt: "Compra, venda e administração de imóveis em Orlando e Miami.",
-    es: "Compra, venta y administración de propiedades en Orlando y Miami.",
+    en: "Buying, selling, investing and property management.",
+    pt: "Compra, venda, investimento e administração de imóveis.",
+    es: "Compra, venta, inversión y administración de propiedades.",
   } as L,
   pillarsTitle: {
     en: "How we work",

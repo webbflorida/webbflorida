@@ -27,8 +27,6 @@ export default async function About({ params }: P) {
       <section className="sec">
         <div className="wrap">
           <div className="purpose">
-            <p className="eyebrow">{{ en: "Our signature", pt: "Nossa assinatura", es: "Nuestra firma" }[lang]}</p>
-            <p className="purpose-line">Beyond the closing.</p>
             <p>{ABOUT.purpose[lang]}</p>
           </div>
           <div className="institutional">
