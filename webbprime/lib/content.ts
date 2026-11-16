@@ -25,11 +25,11 @@ export const HOME = {
     es: "Webb Prime Real Estate asesora a inversionistas y familias en la compra de propiedades en Dubái, en preventa o listas, con atención en español, inglés y portugués.",
   } as L,
   eyebrow: { en: "Dubai · United Arab Emirates", pt: "Dubai · Emirados Árabes Unidos", es: "Dubái · Emiratos Árabes Unidos" } as L,
-  title: { en: "Beyond the closing.", pt: "Beyond the closing.", es: "Beyond the closing." } as L,
+  title: { en: "Property in Dubai.", pt: "Imóveis em Dubai.", es: "Propiedades en Dubái." } as L,
   lead: {
-    en: "Buying property in Dubai, off-plan or ready, for income, appreciation or a new home.",
-    pt: "Compra de imóveis em Dubai, na planta ou prontos, para renda, valorização ou moradia.",
-    es: "Compra de propiedades en Dubái, en preventa o listas, para renta, valorización o vivienda.",
+    en: "Off-plan or ready, for income, appreciation or a new home.",
+    pt: "Na planta ou prontos, para renda, valorização ou moradia.",
+    es: "En preventa o listas, para renta, valorización o vivienda.",
   } as L,
   statement: {
     en: "Tailored service, from the first conversation to the keys.",
