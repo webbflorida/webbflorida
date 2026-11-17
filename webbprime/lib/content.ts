@@ -3,7 +3,7 @@ import type { Locale } from "./site";
 export type L = Record<Locale, string>;
 export type LL = Record<Locale, string[]>;
 
-/* ---------------- Grupo Webb ---------------- */
+/* ---------------- Marca WEBB ---------------- */
 
 export const GROUP = [
   { place: { en: "Brazil", pt: "Brasil", es: "Brasil" } as L, name: "Webb Imóveis", year: "2008", url: "" },
@@ -83,7 +83,7 @@ export const HOME = {
     pt: "A Webb Florida Realty, nossa imobiliária na Flórida desde 2015, cuida de compra, venda e administração de imóveis em Orlando e Miami.",
     es: "Webb Florida Realty, nuestra inmobiliaria en Florida desde 2015, se ocupa de compra, venta y administración de propiedades en Orlando y Miami.",
   } as L,
-  groupLabel: { en: "Webb Group", pt: "Grupo Webb", es: "Grupo Webb" } as L,
+  groupLabel: { en: "WEBB", pt: "WEBB", es: "WEBB" } as L,
   privateTitle: { en: "A private conversation", pt: "Uma conversa reservada", es: "Una conversación reservada" } as L,
   closing: {
     en: "Tell us what you are looking for in Dubai. We reply personally, in full confidence.",
@@ -254,9 +254,9 @@ export const VISA = {
 export const ABOUT = {
   title: { en: "Our story", pt: "Nossa história", es: "Nuestra historia" } as L,
   lead: {
-    en: "Webb Prime Real Estate is the Webb Group's brokerage in Dubai.",
-    pt: "A Webb Prime Real Estate é a imobiliária do Grupo Webb em Dubai.",
-    es: "Webb Prime Real Estate es la inmobiliaria del Grupo Webb en Dubái.",
+    en: "Webb Prime Real Estate is WEBB's brokerage in Dubai.",
+    pt: "A Webb Prime Real Estate é a imobiliária da WEBB em Dubai.",
+    es: "Webb Prime Real Estate es la inmobiliaria de WEBB en Dubái.",
   } as L,
   institutional: [
     {
@@ -265,16 +265,16 @@ export const ABOUT = {
       es: "Webb Prime Real Estate es una inmobiliaria en Dubái, en los Emiratos Árabes Unidos. La empresa asesora a inversionistas y familias en la compra de propiedades en preventa y listas en la ciudad, atendiendo a clientes residentes en los Emiratos y en el exterior.",
     },
     {
-      en: "It is part of the Webb Group, with operations in Brazil, the United States and the United Arab Emirates. The group began in 2008 with Webb Imóveis in Brazil and arrived in Florida in 2015 with Webb Florida Realty, in Orlando and Miami.",
-      pt: "Integra o Grupo Webb, com operações no Brasil, nos Estados Unidos e nos Emirados Árabes Unidos. O grupo começou em 2008 com a Webb Imóveis, no Brasil, e chegou à Flórida em 2015 com a Webb Florida Realty, em Orlando e Miami.",
-      es: "Integra el Grupo Webb, con operaciones en Brasil, Estados Unidos y los Emiratos Árabes Unidos. El grupo comenzó en 2008 con Webb Imóveis, en Brasil, y llegó a Florida en 2015 con Webb Florida Realty, en Orlando y Miami.",
+      en: "It is part of WEBB, with operations in Brazil, the United States and the United Arab Emirates. WEBB began in 2008 with Webb Imóveis in Brazil and arrived in Florida in 2015 with Webb Florida Realty, in Orlando and Miami.",
+      pt: "Faz parte da WEBB, com operações no Brasil, nos Estados Unidos e nos Emirados Árabes Unidos. A WEBB começou em 2008 com a Webb Imóveis, no Brasil, e chegou à Flórida em 2015 com a Webb Florida Realty, em Orlando e Miami.",
+      es: "Forma parte de WEBB, con operaciones en Brasil, Estados Unidos y los Emiratos Árabes Unidos. WEBB comenzó en 2008 con Webb Imóveis, en Brasil, y llegó a Florida en 2015 con Webb Florida Realty, en Orlando y Miami.",
     },
   ] as L[],
   brokerEyebrow: { en: "Broker", pt: "Broker", es: "Broker" } as L,
   broker: {
-    en: "Ramon Brandão began his career in real estate in Brazil in 2008, leading Webb Imóveis. In 2015 he took the company to Florida, and in 2025 he led the Webb Group's arrival in Dubai.\n\nHe works with investors who want to diversify internationally, analyzing each opportunity and following the purchase at every step, in English, Portuguese and Spanish.",
-    pt: "Ramon Brandão iniciou a carreira no mercado imobiliário no Brasil, em 2008, à frente da Webb Imóveis. Em 2015 levou a empresa para a Flórida e, em 2025, conduziu a chegada do Grupo Webb a Dubai.\n\nAtende investidores que querem diversificar o patrimônio fora do país, analisando cada oportunidade e acompanhando a compra em cada etapa, em português, inglês e espanhol.",
-    es: "Ramon Brandão inició su carrera en el mercado inmobiliario en Brasil, en 2008, al frente de Webb Imóveis. En 2015 llevó la empresa a Florida y, en 2025, condujo la llegada del Grupo Webb a Dubái.\n\nAtiende a inversionistas que quieren diversificar su patrimonio fuera del país, analizando cada oportunidad y acompañando la compra en cada etapa, en español, portugués e inglés.",
+    en: "Ramon Brandão began his career in real estate in Brazil in 2008, leading Webb Imóveis. In 2015 he took the company to Florida, and in 2025 he led WEBB's arrival in Dubai.\n\nHe works with investors who want to diversify internationally, analyzing each opportunity and following the purchase at every step, in English, Portuguese and Spanish.",
+    pt: "Ramon Brandão iniciou a carreira no mercado imobiliário no Brasil, em 2008, à frente da Webb Imóveis. Em 2015 levou a empresa para a Flórida e, em 2025, conduziu a chegada da WEBB a Dubai.\n\nAtende investidores que querem diversificar o patrimônio fora do país, analisando cada oportunidade e acompanhando a compra em cada etapa, em português, inglês e espanhol.",
+    es: "Ramon Brandão inició su carrera en el mercado inmobiliario en Brasil, en 2008, al frente de Webb Imóveis. En 2015 llevó la empresa a Florida y, en 2025, condujo la llegada de WEBB a Dubái.\n\nAtiende a inversionistas que quieren diversificar su patrimonio fuera del país, analizando cada oportunidad y acompañando la compra en cada etapa, en español, portugués e inglés.",
   } as L,
 };
 

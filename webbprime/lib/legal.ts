@@ -27,6 +27,6 @@ export const TERMS: Block[] = [
   { h: "Information on this website", p: "Project information, prices, payment plans, and delivery dates are provided by developers and may change without notice. They do not constitute an offer. Availability must be confirmed with us before any decision." },
   { h: "No legal or tax advice", p: "Content on this website is general information. It is not legal, tax, immigration, or financial advice. Visa rules are set by the UAE government and may change." },
   { h: "Regulation", p: `${co} is a real estate brokerage in Dubai, registered with the Real Estate Regulatory Agency (RERA), ORN ${SITE.orn}. Property advertisements carry the corresponding RERA permit number.` },
-  { h: "Intellectual property", p: "Texts, logos, and design on this website belong to the Webb Group. Project images belong to their respective developers." },
+  { h: "Intellectual property", p: "Texts, logos, and design on this website belong to WEBB. Project images belong to their respective developers." },
   { h: "Contact", p: SITE.email },
 ];
