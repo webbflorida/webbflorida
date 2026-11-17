@@ -102,12 +102,12 @@ export const HOME = {
   familyBrands: [
     { place: { en: "Brazil", pt: "Brasil", es: "Brasil" } as L, name: "Webb Imóveis", note: { en: "Since 2008", pt: "Desde 2008", es: "Desde 2008" } as L },
     { place: { en: "Florida", pt: "Flórida", es: "Florida" } as L, name: "Webb Florida Realty", note: { en: "Since 2015", pt: "Desde 2015", es: "Desde 2015" } as L },
-    { place: { en: "United Arab Emirates", pt: "Emirados Árabes Unidos", es: "Emiratos Árabes Unidos" } as L, name: "Webb Real Estate", note: { en: "Since 2025", pt: "Desde 2025", es: "Desde 2025" } as L },
+    { place: { en: "United Arab Emirates", pt: "Emirados Árabes Unidos", es: "Emiratos Árabes Unidos" } as L, name: "Webb Prime Real Estate", note: { en: "Since 2025", pt: "Desde 2025", es: "Desde 2025" } as L },
   ] as { place: L; name: string; note: L | null }[],
   family: {
-    en: "Webb has been in real estate since 2008: Webb Imóveis in Brazil, Webb Florida Realty in Orlando and Miami since 2015, and Webb Real Estate in Dubai.",
-    pt: "A Webb está no mercado imobiliário desde 2008: Webb Imóveis no Brasil, Webb Florida Realty em Orlando e Miami desde 2015 e Webb Real Estate em Dubai.",
-    es: "Webb está en el mercado inmobiliario desde 2008: Webb Imóveis en Brasil, Webb Florida Realty en Orlando y Miami desde 2015 y Webb Real Estate en Dubái.",
+    en: "Webb has been in real estate since 2008: Webb Imóveis in Brazil, Webb Florida Realty in Orlando and Miami since 2015, and Webb Prime Real Estate in Dubai.",
+    pt: "A Webb está no mercado imobiliário desde 2008: Webb Imóveis no Brasil, Webb Florida Realty em Orlando e Miami desde 2015 e Webb Prime Real Estate em Dubai.",
+    es: "Webb está en el mercado inmobiliario desde 2008: Webb Imóveis en Brasil, Webb Florida Realty en Orlando y Miami desde 2015 y Webb Prime Real Estate en Dubái.",
   } as L,
   /* Home boutique (27/10): menos blocos, mais texto editorial. */
   statement: {
@@ -734,9 +734,9 @@ export const FAQ: { q: L; a: L }[] = [
       es: "¿También trabajan en Dubái?",
     },
     a: {
-      en: "Yes, through Webb Real Estate, our sister company in Dubai.",
-      pt: "Sim, pela Webb Real Estate, nossa empresa irmã em Dubai.",
-      es: "Sí, a través de Webb Real Estate, nuestra empresa hermana en Dubái.",
+      en: "Yes, through Webb Prime Real Estate, our sister company in Dubai.",
+      pt: "Sim, pela Webb Prime Real Estate, nossa empresa irmã em Dubai.",
+      es: "Sí, a través de Webb Prime Real Estate, nuestra empresa hermana en Dubái.",
     },
   },
 ];
@@ -789,7 +789,7 @@ export const ABOUT = {
     },
     {
       k: { en: "Dubai · 2025", pt: "Dubai · 2025", es: "Dubái · 2025" } as L,
-      h: "Webb Real Estate",
+      h: "Webb Prime Real Estate",
       p: {
         en: "Today, Webb is also in Dubai, connecting clients across South America, North America and the Emirates.",
         pt: "Hoje, a Webb também está em Dubai, conectando clientes entre a América do Sul, a América do Norte e os Emirados.",

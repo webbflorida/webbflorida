@@ -18,7 +18,7 @@ export const SITE = {
     facebook: "",
     linkedin: "",
   },
-  dubai: { name: "Webb Real Estate", city: "Dubai" },
+  dubai: { name: "Webb Prime Real Estate", city: "Dubai" },
 };
 
 export const LOCALES = ["en", "pt", "es"] as const;
