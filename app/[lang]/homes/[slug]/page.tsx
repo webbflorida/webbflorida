@@ -21,6 +21,15 @@ async function load(params: P["params"]) {
 }
 
 const T = {
+  listedBy: { en: "Listed by", pt: "Anunciado por", es: "Listado por" } as L,
+  tagOwn: { en: "For sale", pt: "À venda", es: "En venta" } as L,
+  built: { en: "Year built", pt: "Ano de construção", es: "Año de construcción" } as L,
+  soon: { en: "Photos coming soon", pt: "Fotos em breve", es: "Fotos próximamente" } as L,
+  legalOwn: {
+    en: "Listed by Webb Florida Realty. Information deemed reliable but not guaranteed; buyers should verify measurements and details. Price subject to change without notice.",
+    pt: "Imóvel anunciado pela Webb Florida Realty. Informações consideradas confiáveis, mas não garantidas; o comprador deve conferir medidas e detalhes. Preço sujeito a alteração sem aviso.",
+    es: "Propiedad listada por Webb Florida Realty. Información considerada confiable, pero no garantizada; el comprador debe verificar medidas y detalles. Precio sujeto a cambios sin aviso.",
+  } as L,
   tag: { en: "New construction · Ready to move in", pt: "Construção nova · Pronta para morar", es: "Construcción nueva · Lista para mudarse" } as L,
   price: { en: "Price", pt: "Preço", es: "Precio" } as L,
   beds: { en: "Bedrooms", pt: "Quartos", es: "Habitaciones" } as L,
@@ -57,18 +66,21 @@ export default async function FeaturedHome({ params }: P) {
   const money = new Intl.NumberFormat(lang === "en" ? "en-US" : lang === "pt" ? "pt-BR" : "es-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
   const num = new Intl.NumberFormat(lang === "en" ? "en-US" : "pt-BR");
   const m2 = Math.round(home.sqft * 0.092903);
+  const own = home.kind === "listing";
   const facts: [string, string][] = [
     [String(home.beds), T.beds[lang]],
     [home.baths[lang], T.baths[lang]],
     [`${num.format(home.sqft)} sq ft · ${m2} m²`, T.area[lang]],
-    [home.garage[lang], T.garage[lang]],
-    [String(home.floors), T.floors[lang]],
   ];
+  if (home.garage) facts.push([home.garage[lang], T.garage[lang]]);
+  if (home.floors) facts.push([String(home.floors), T.floors[lang]]);
+  if (home.yearBuilt) facts.push([String(home.yearBuilt), T.built[lang]]);
   return (
     <Shell lang={lang} path={`/homes/${home.slug}/`}>
       <section style={{ paddingTop: 32 }}>
         <div className="wrap">
           <div className="pd-gallery">
+            {home.photos.length === 0 && <figure className="pd-photo"><div className="photo-soon">{T.soon[lang]}</div></figure>}
             {home.photos.map((p) => (
               <figure key={p.src} className="pd-photo">
                 <img className="photo" src={p.src} alt={p.caption[lang]} loading="lazy" />
@@ -79,8 +91,9 @@ export default async function FeaturedHome({ params }: P) {
 
           <div className="pd-head">
             <div>
-              <p className="eyebrow">{T.tag[lang]} · {home.city[lang]}</p>
+              <p className="eyebrow">{own ? T.tagOwn[lang] : T.tag[lang]} · {home.city[lang]}</p>
               <h1 style={{ fontSize: "clamp(36px,4.5vw,56px)" }}>{home.title[lang]}</h1>
+              {own && <p className="muted" style={{ marginTop: 8 }}>{T.listedBy[lang]} Webb Florida Realty · {SITE.broker}</p>}
             </div>
             <div className="pd-pricebox">
               <p className="eyebrow" style={{ color: "var(--muted)" }}>{T.price[lang]}</p>
@@ -116,7 +129,7 @@ export default async function FeaturedHome({ params }: P) {
               </div>
             </aside>
           </div>
-          <p className="pd-legal">{T.legal[lang].replace("{d}", fmtDate(home.checked, lang))} {SITE.legalName}. {t.footer.licensed}.</p>
+          <p className="pd-legal">{own ? T.legalOwn[lang] : T.legal[lang].replace("{d}", fmtDate(home.checked, lang))} {SITE.legalName}. {t.footer.licensed}.</p>
         </div>
       </section>
       <div style={{ height: 80 }} />

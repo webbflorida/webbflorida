@@ -46,6 +46,12 @@ export default async function Homes({ params, searchParams }: P) {
       pt: "Imóveis vendidos pela construtora. Preços informados pela construtora, sujeitos a alteração.",
       es: "Casas vendidas por el constructor. Precios informados por el constructor, sujetos a cambios.",
     }[lang],
+    own: { en: "For sale by Webb Florida Realty", pt: "À venda pela Webb Florida Realty", es: "En venta por Webb Florida Realty" }[lang],
+    ownNote: {
+      en: "Homes listed by our team. Information deemed reliable but not guaranteed.",
+      pt: "Imóveis anunciados pelo nosso time. Informações consideradas confiáveis, mas não garantidas.",
+      es: "Propiedades listadas por nuestro equipo. Información considerada confiable, pero no garantizada.",
+    }[lang],
     by: { en: "Listed by", pt: "Anunciado por", es: "Listado por" }[lang],
     disc: {
       en: "Listing information is provided by the MLS and deemed reliable but not guaranteed.",
@@ -56,24 +62,31 @@ export default async function Homes({ params, searchParams }: P) {
   return (
     <Shell lang={lang} path="/homes/">
       <PageHero lang={lang} title={HOMES.title[lang]} lead={HOMES.lead[lang]} />
-      {FEATURED.length > 0 && (
-        <section className="sec">
+      {[
+        { list: FEATURED.filter((h) => h.kind === "listing"), eyebrow: L.own, note: L.ownNote },
+        { list: FEATURED.filter((h) => h.kind !== "listing"), eyebrow: L.nc, note: L.ncNote },
+      ].filter((g) => g.list.length > 0).map((g) => (
+        <section className="sec" key={g.eyebrow}>
           <div className="wrap">
-            <p className="eyebrow">{L.nc}</p>
+            <p className="eyebrow">{g.eyebrow}</p>
             <div className="area-cards" style={{ marginTop: 24 }}>
-              {FEATURED.map((h) => (
+              {g.list.map((h) => (
                 <a className="area-card" key={h.slug} href={`/${lang}/homes/${h.slug}/`}>
-                  <div className="area-card-photo"><img className="photo" src={h.photos[0].src} alt={h.title[lang]} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} /></div>
+                  <div className="area-card-photo">
+                    {h.photos[0]
+                      ? <img className="photo" src={h.photos[0].src} alt={h.title[lang]} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                      : <div className="photo-soon">WEBB</div>}
+                  </div>
                   <h3>{money.format(h.price)}</h3>
                   <p>{h.title[lang]}</p>
                   <p className="muted" style={{ fontSize: 13, marginTop: -8 }}>{h.city[lang]} · {h.sqft.toLocaleString(lang === "en" ? "en-US" : "pt-BR")} sq ft</p>
                 </a>
               ))}
             </div>
-            <p className="pd-legal">{L.ncNote}</p>
+            <p className="pd-legal">{g.note}</p>
           </div>
         </section>
-      )}
+      ))}
       <section className="sec">
         <div className="wrap">
           {MLS_READY && (
