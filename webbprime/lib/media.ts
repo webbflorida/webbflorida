@@ -8,8 +8,6 @@ export const MEDIA: Record<string, Slot> = {
   hero: { src: "", hint: "Foto ou vídeo em tela cheia: skyline de Dubai ao entardecer, vista da Marina ou do Downtown", alt: "Dubai" },
   invest: { src: "", hint: "Dubai: vista aérea da costa e das ilhas", alt: "Dubai" },
   goldenvisa: { src: "", hint: "Dubai: arquitetura moderna, Museum of the Future ou DIFC", alt: "Dubai" },
-  "azizi-milan": { src: "", hint: "Azizi Milan: fachada ou perspectiva do empreendimento (imagem liberada pela incorporadora)", alt: "Azizi Milan" },
-  "sunset-bay-grand": { src: "", hint: "Sunset Bay Grand: vista frente ao mar em Dubai Islands (imagem liberada pela incorporadora)", alt: "Sunset Bay Grand" },
   ramon: { src: "", hint: "Retrato profissional do Ramon (vertical)", alt: "Ramon Brandão" },
   story: { src: "", hint: "Foto ampla: Dubai à noite ou interior de um empreendimento", alt: "Webb" },
 };
