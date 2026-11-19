@@ -4,28 +4,17 @@ import { getLang } from "@/lib/params";
 import { pageMeta } from "@/lib/seo";
 import { UI } from "@/lib/ui";
 import { HOME, HOMES } from "@/lib/content";
-import { getListings, MLS_READY, type Search } from "@/lib/mls";
 import { FEATURED } from "@/lib/featured";
 
-type P = { params: Promise<{ lang: string }>; searchParams?: Promise<Record<string, string | undefined>> };
+type P = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: P) {
   const lang = await getLang(params);
   return pageMeta(lang, "/homes/", `${HOMES.title[lang]} | Webb Florida Realty`, HOMES.lead[lang]);
 }
 
-const num = (v?: string) => (v && /^\d+$/.test(v) ? Number(v) : undefined);
-
-export default async function Homes({ params, searchParams }: P) {
+export default async function Homes({ params }: P) {
   const lang = await getLang(params);
-  const sp = (await searchParams) ?? {};
-  const search: Search = {
-    mls: sp.city === "miami" || sp.city === "stellar" ? sp.city : undefined,
-    minPrice: num(sp.min),
-    maxPrice: num(sp.max),
-    beds: num(sp.beds),
-  };
-  const listings = await getListings(search);
   const money = new Intl.NumberFormat(lang === "en" ? "en-US" : lang === "pt" ? "pt-BR" : "es-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
   const L = {
     bd: (n: number) => ({ en: "bd", pt: n === 1 ? "quarto" : "quartos", es: n === 1 ? "hab." : "hab." }[lang]),
@@ -74,38 +63,10 @@ export default async function Homes({ params, searchParams }: P) {
           </div>
         </section>
       )}
+      {/* Decisão do Ramon (19/11/2026): só imóveis de construtoras e os anunciados pelo nosso time; nada de imóveis de outras imobiliárias do MLS. */}
       <section className="sec">
         <div className="wrap">
-          {MLS_READY && (
-            <form className="mls-search" method="get" action={`/${lang}/homes/`}>
-              <label>{L.f.city}<select name="city" defaultValue={search.mls ?? ""}><option value="">{L.f.all}</option><option value="stellar">Orlando</option><option value="miami">Miami</option></select></label>
-              <label>{L.f.min}<select name="min" defaultValue={search.minPrice ? String(search.minPrice) : ""}><option value="">{L.f.any}</option>{[400000, 500000, 750000, 1000000, 2000000].map((v) => <option key={v} value={v}>{money.format(v)}</option>)}</select></label>
-              <label>{L.f.max}<select name="max" defaultValue={search.maxPrice ? String(search.maxPrice) : ""}><option value="">{L.f.any}</option>{[500000, 750000, 1000000, 2000000, 5000000].map((v) => <option key={v} value={v}>{money.format(v)}</option>)}</select></label>
-              <label>{L.f.beds}<select name="beds" defaultValue={search.beds ? String(search.beds) : ""}><option value="">{L.f.any}</option>{[1, 2, 3, 4, 5].map((v) => <option key={v} value={v}>{v}+</option>)}</select></label>
-              <button className="btn btn-dark" type="submit">{L.f.go}</button>
-            </form>
-          )}
-          {MLS_READY && listings.length === 0 ? (
-            <div className="soon"><p>{L.f.none}</p><a className="btn btn-dark" href={`/${lang}/contact/`}>{UI[lang].cta.talk}</a></div>
-          ) : listings.length > 0 ? (
-            <>
-              <div className="area-cards">
-                {listings.map((h) => (
-                  <a className="area-card" key={h.mls + h.id} href={`/${lang}/contact/`}>
-                    <div className="area-card-photo">{h.photo ? <img src={h.photo} alt={h.street || h.city || ""} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : <div className="ph" />}</div>
-                    <h3>{money.format(h.price)}</h3>
-                    <p>{[h.city, h.beds != null && `${h.beds} ${L.bd(h.beds)}`, h.baths != null && `${h.baths} ${L.ba(h.baths)}`].filter(Boolean).join(" · ")}</p>
-                    {h.officeName && <p className="muted" style={{ fontSize: 12 }}>{L.by} {h.officeName}</p>}
-                  </a>
-                ))}
-              </div>
-              <p className="pd-legal">{L.disc}</p>
-            </>
-          ) : (
           <div className="soon"><p>{HOME.listingsSoon[lang]}</p><a className="btn btn-dark" href={`/${lang}/contact/`}>{UI[lang].cta.talk}</a></div>
-          )}
-          {/* Só na prévia: remover no lançamento. */}
-          <p style={{ textAlign: "center", marginTop: 32 }}><a className="link-cta link-cta-dark" href={`/${lang}/homes/modelo/`}>{{ en: "See the property page layout", pt: "Ver o modelo de página de imóvel", es: "Ver el modelo de página de propiedad" }[lang]}</a></p>
         </div>
       </section>
     </Shell>
