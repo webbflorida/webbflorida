@@ -5,6 +5,8 @@ type L = Record<Locale, string>;
 // Imóveis de construção nova divulgados pela Webb (casas prontas vendidas pela construtora).
 // Regra do Ramon: sem endereço, sem nome da construtora e sem nome da comunidade.
 // Preços conferidos no site da construtora na data em `checked`. Atualizar ou remover quando mudar.
+// Regra do Ramon (19/11/2026): antes de publicar ou mudar um preço, conferir o valor atual numa página pública
+// (MLS, Realtor.com ou Redfin) pelo endereço. Conferência semanal. Nunca citar a fonte no anúncio.
 // kind "listing" = imóvel usado anunciado pela própria Webb Florida Realty (listing nosso no MLS).
 export type Featured = {
   slug: string;
@@ -31,7 +33,7 @@ export const FEATURED: Featured[] = [
     yearBuilt: 2018,
     city: { en: "Windermere", pt: "Windermere", es: "Windermere" },
     title: { en: "Renovated 4-bedroom home with heated pool", pt: "Casa de 4 quartos reformada, com piscina aquecida", es: "Casa de 4 habitaciones renovada, con piscina climatizada" },
-    price: 1159000,
+    price: 1153000,
     beds: 4,
     baths: { en: "3 full + half bath", pt: "3 completos + lavabo", es: "3 completos + medio baño" },
     sqft: 2665,
