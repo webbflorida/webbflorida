@@ -342,7 +342,7 @@ p{margin:0 0 1em}
   .hero-search button{grid-column:1/-1;padding:16px}
 }
 
-/* faixa institucional do Grupo Webb (home) */
+/* faixa institucional da WEBB (home) */
 .family-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:36px 0;text-align:center}
 .family-label{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin:0 0 18px}
 .family-strip ul{list-style:none;margin:0;padding:0;display:flex;justify-content:center;flex-wrap:wrap}

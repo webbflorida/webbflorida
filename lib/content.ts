@@ -102,12 +102,12 @@ export const HOME = {
   familyBrands: [
     { place: { en: "Brazil", pt: "Brasil", es: "Brasil" } as L, name: "Webb Imóveis", note: { en: "Since 2008", pt: "Desde 2008", es: "Desde 2008" } as L },
     { place: { en: "Florida", pt: "Flórida", es: "Florida" } as L, name: "Webb Florida Realty", note: { en: "Since 2015", pt: "Desde 2015", es: "Desde 2015" } as L },
-    { place: { en: "United Arab Emirates", pt: "Emirados Árabes Unidos", es: "Emiratos Árabes Unidos" } as L, name: "Webb Real Estate", note: { en: "Since 2025", pt: "Desde 2025", es: "Desde 2025" } as L },
+    { place: { en: "United Arab Emirates", pt: "Emirados Árabes Unidos", es: "Emiratos Árabes Unidos" } as L, name: "Webb Prime Real Estate", note: { en: "Since 2025", pt: "Desde 2025", es: "Desde 2025" } as L },
   ] as { place: L; name: string; note: L | null }[],
   family: {
-    en: "Webb has been in real estate since 2008: Webb Imóveis in Brazil, Webb Florida Realty in Orlando and Miami since 2015, and Webb Real Estate in Dubai.",
-    pt: "A Webb está no mercado imobiliário desde 2008: Webb Imóveis no Brasil, Webb Florida Realty em Orlando e Miami desde 2015 e Webb Real Estate em Dubai.",
-    es: "Webb está en el mercado inmobiliario desde 2008: Webb Imóveis en Brasil, Webb Florida Realty en Orlando y Miami desde 2015 y Webb Real Estate en Dubái.",
+    en: "Webb has been in real estate since 2008: Webb Imóveis in Brazil, Webb Florida Realty in Orlando and Miami since 2015, and Webb Prime Real Estate in Dubai.",
+    pt: "A Webb está no mercado imobiliário desde 2008: Webb Imóveis no Brasil, Webb Florida Realty em Orlando e Miami desde 2015 e Webb Prime Real Estate em Dubai.",
+    es: "Webb está en el mercado inmobiliario desde 2008: Webb Imóveis en Brasil, Webb Florida Realty en Orlando y Miami desde 2015 y Webb Prime Real Estate en Dubái.",
   } as L,
   /* Home boutique (27/10): menos blocos, mais texto editorial. */
   statement: {
@@ -734,9 +734,9 @@ export const FAQ: { q: L; a: L }[] = [
       es: "¿También trabajan en Dubái?",
     },
     a: {
-      en: "Yes, through Webb Real Estate, our sister company in Dubai.",
-      pt: "Sim, pela Webb Real Estate, nossa empresa irmã em Dubai.",
-      es: "Sí, a través de Webb Real Estate, nuestra empresa hermana en Dubái.",
+      en: "Yes, through Webb Prime Real Estate, our sister company in Dubai.",
+      pt: "Sim, pela Webb Prime Real Estate, nossa empresa irmã em Dubai.",
+      es: "Sí, a través de Webb Prime Real Estate, nuestra empresa hermana en Dubái.",
     },
   },
 ];
@@ -763,9 +763,9 @@ export const ABOUT = {
       es: "Fundada en 2015, Webb Florida Realty LLC es una inmobiliaria con licencia en el Estado de Florida. La empresa actúa en Orlando y Miami en la compra, venta, inversión y administración de propiedades, atendiendo a clientes residentes en Estados Unidos y en el exterior.",
     },
     {
-      en: "Webb Florida Realty is part of the Webb Group, with operations in Brazil, the United States and the United Arab Emirates. The group's origins date back to 2008, with the founding of Webb Imóveis, one of the first agencies in the region to present its properties online.",
-      pt: "A Webb Florida Realty integra o Grupo Webb, com operações no Brasil, nos Estados Unidos e nos Emirados Árabes Unidos. A origem do grupo remonta a 2008, com a fundação da Webb Imóveis, uma das primeiras imobiliárias da região a apresentar seus imóveis na internet.",
-      es: "Webb Florida Realty integra el Grupo Webb, con operaciones en Brasil, Estados Unidos y los Emiratos Árabes Unidos. El origen del grupo se remonta a 2008, con la fundación de Webb Imóveis, una de las primeras inmobiliarias de la región en presentar sus propiedades en internet.",
+      en: "Webb Florida Realty is part of WEBB, with operations in Brazil, the United States and the United Arab Emirates. WEBB's origins date back to 2008, with the founding of Webb Imóveis, one of the first agencies in the region to present its properties online.",
+      pt: "A Webb Florida Realty faz parte da WEBB, com operações no Brasil, nos Estados Unidos e nos Emirados Árabes Unidos. A origem da WEBB remonta a 2008, com a fundação da Webb Imóveis, uma das primeiras imobiliárias da região a apresentar seus imóveis na internet.",
+      es: "Webb Florida Realty forma parte de WEBB, con operaciones en Brasil, Estados Unidos y los Emiratos Árabes Unidos. El origen de WEBB se remonta a 2008, con la fundación de Webb Imóveis, una de las primeras inmobiliarias de la región en presentar sus propiedades en internet.",
     },
   ] as L[],
   story: [
@@ -789,7 +789,7 @@ export const ABOUT = {
     },
     {
       k: { en: "Dubai · 2025", pt: "Dubai · 2025", es: "Dubái · 2025" } as L,
-      h: "Webb Real Estate",
+      h: "Webb Prime Real Estate",
       p: {
         en: "Today, Webb is also in Dubai, connecting clients across South America, North America and the Emirates.",
         pt: "Hoje, a Webb também está em Dubai, conectando clientes entre a América do Sul, a América do Norte e os Emirados.",
@@ -800,9 +800,9 @@ export const ABOUT = {
   brokerEyebrow: { en: "Broker", pt: "Broker", es: "Broker" } as L,
   brokerTitle: { en: "Ramon Brandão", pt: "Ramon Brandão", es: "Ramon Brandão" } as L,
   broker: {
-    en: "Ramon Brandão is the managing broker of Webb Florida Realty. He began his career in real estate in Brazil in 2008, leading Webb Imóveis, and in 2015 brought the company to Florida, serving Orlando and Miami. In 2025, he led the Webb Group's arrival in Dubai, in the United Arab Emirates.\n\nAt Webb Florida Realty, he personally serves families, investors and international buyers in the purchase, sale and management of properties, in English, Portuguese and Spanish.",
-    pt: "Ramon Brandão é o broker responsável pela Webb Florida Realty. Iniciou a carreira no mercado imobiliário no Brasil, em 2008, à frente da Webb Imóveis, e em 2015 levou a empresa para a Flórida, com atuação em Orlando e Miami. Em 2025, conduziu a chegada do Grupo Webb a Dubai, nos Emirados Árabes Unidos.\n\nÀ frente da Webb Florida Realty, atende pessoalmente famílias, investidores e compradores internacionais na compra, venda e administração de imóveis, em português, inglês e espanhol.",
-    es: "Ramon Brandão es el broker responsable de Webb Florida Realty. Inició su carrera en el mercado inmobiliario en Brasil, en 2008, al frente de Webb Imóveis, y en 2015 llevó la empresa a Florida, con actuación en Orlando y Miami. En 2025, condujo la llegada del Grupo Webb a Dubái, en los Emiratos Árabes Unidos.\n\nAl frente de Webb Florida Realty, atiende personalmente a familias, inversionistas y compradores internacionales en la compra, venta y administración de propiedades, en español, portugués e inglés.",
+    en: "Ramon Brandão is the managing broker of Webb Florida Realty. He began his career in real estate in Brazil in 2008, leading Webb Imóveis, and in 2015 brought the company to Florida, serving Orlando and Miami. In 2025, he led WEBB's arrival in Dubai, in the United Arab Emirates.\n\nAt Webb Florida Realty, he personally serves families, investors and international buyers in the purchase, sale and management of properties, in English, Portuguese and Spanish.",
+    pt: "Ramon Brandão é o broker responsável pela Webb Florida Realty. Iniciou a carreira no mercado imobiliário no Brasil, em 2008, à frente da Webb Imóveis, e em 2015 levou a empresa para a Flórida, com atuação em Orlando e Miami. Em 2025, conduziu a chegada da WEBB a Dubai, nos Emirados Árabes Unidos.\n\nÀ frente da Webb Florida Realty, atende pessoalmente famílias, investidores e compradores internacionais na compra, venda e administração de imóveis, em português, inglês e espanhol.",
+    es: "Ramon Brandão es el broker responsable de Webb Florida Realty. Inició su carrera en el mercado inmobiliario en Brasil, en 2008, al frente de Webb Imóveis, y en 2015 llevó la empresa a Florida, con actuación en Orlando y Miami. En 2025, condujo la llegada de WEBB a Dubái, en los Emiratos Árabes Unidos.\n\nAl frente de Webb Florida Realty, atiende personalmente a familias, inversionistas y compradores internacionales en la compra, venta y administración de propiedades, en español, portugués e inglés.",
   } as L,
 };
 
