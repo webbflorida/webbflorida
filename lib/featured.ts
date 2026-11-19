@@ -36,11 +36,12 @@ export const FEATURED: Featured[] = [
     baths: { en: "3 full + half bath", pt: "3 completos + lavabo", es: "3 completos + medio baño" },
     sqft: 2665,
     desc: {
-      en: "Single-family home in Windermere, built in 2018 and fully renovated in 2026. The kitchen has custom millwork and a quartz island, and the primary bath has a freestanding tub. Porcelain and laminate floors, LED lighting, Italian wallpaper and wood wall paneling throughout. Outside: a new heated pool, covered lanai, artificial turf, pavers and a fence.",
-      pt: "Casa em Windermere, construída em 2018 e reformada por completo em 2026. A cozinha tem marcenaria sob medida e ilha de quartzo, e o banheiro da suíte principal tem banheira de apoio (freestanding). Pisos de porcelanato e laminado, iluminação LED, papel de parede italiano e painéis de madeira. Na área externa: piscina aquecida nova, varanda coberta (lanai), grama sintética, pavers e cerca.",
-      es: "Casa en Windermere, construida en 2018 y renovada por completo en 2026. La cocina tiene carpintería a medida e isla de cuarzo, y el baño principal tiene bañera exenta. Pisos de porcelanato y laminado, iluminación LED, papel tapiz italiano y paneles de madera. Afuera: piscina climatizada nueva, lanai cubierto, césped sintético, pavers y cerca.",
+      en: "Single-family home in Windermere, built in 2018 and fully renovated in 2026. The kitchen has custom millwork and a quartz island, and the primary bath has a freestanding tub. Porcelain and laminate floors, LED lighting, Italian wallpaper and wood wall paneling throughout. Outside: a new heated pool, covered lanai, artificial turf, pavers and a fence. Sold furnished and decorated.",
+      pt: "Casa em Windermere, construída em 2018 e reformada por completo em 2026. A cozinha tem marcenaria sob medida e ilha de quartzo, e o banheiro da suíte principal tem banheira de apoio (freestanding). Pisos de porcelanato e laminado, iluminação LED, papel de parede italiano e painéis de madeira. Na área externa: piscina aquecida nova, varanda coberta (lanai), grama sintética, pavers e cerca. Vendida mobiliada e decorada.",
+      es: "Casa en Windermere, construida en 2018 y renovada por completo en 2026. La cocina tiene carpintería a medida e isla de cuarzo, y el baño principal tiene bañera exenta. Pisos de porcelanato y laminado, iluminación LED, papel tapiz italiano y paneles de madera. Afuera: piscina climatizada nueva, lanai cubierto, césped sintético, pavers y cerca. Se vende amueblada y decorada.",
     },
     features: [
+      { en: "Sold furnished and decorated", pt: "Vendida mobiliada e decorada", es: "Se vende amueblada y decorada" },
       { en: "New heated pool", pt: "Piscina aquecida nova", es: "Piscina climatizada nueva" },
       { en: "Kitchen with custom millwork and quartz island", pt: "Cozinha com marcenaria sob medida e ilha de quartzo", es: "Cocina con carpintería a medida e isla de cuarzo" },
       { en: "Primary bath with freestanding tub", pt: "Suíte principal com banheira freestanding", es: "Baño principal con bañera exenta" },
