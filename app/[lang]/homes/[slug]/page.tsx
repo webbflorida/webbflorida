@@ -21,6 +21,7 @@ async function load(params: P["params"]) {
 }
 
 const T = {
+  listedBy: { en: "Listed by", pt: "Anunciado por", es: "Listado por" } as L,
   tagOwn: { en: "For sale", pt: "À venda", es: "En venta" } as L,
   built: { en: "Year built", pt: "Ano de construção", es: "Año de construcción" } as L,
   soon: { en: "Photos coming soon", pt: "Fotos em breve", es: "Fotos próximamente" } as L,
@@ -92,6 +93,7 @@ export default async function FeaturedHome({ params }: P) {
             <div>
               <p className="eyebrow">{own ? T.tagOwn[lang] : T.tag[lang]} · {home.city[lang]}</p>
               <h1 style={{ fontSize: "clamp(36px,4.5vw,56px)" }}>{home.title[lang]}</h1>
+              {own && <p className="muted" style={{ marginTop: 8 }}>{T.listedBy[lang]} Webb Florida Realty · {SITE.broker}</p>}
             </div>
             <div className="pd-pricebox">
               <p className="eyebrow" style={{ color: "var(--muted)" }}>{T.price[lang]}</p>
