@@ -2,8 +2,8 @@
 export const SITE = {
   url: "https://webbprimerealestate.com",
   brand: "Webb Prime Real Estate",
-  legalName: "Webb Prime Real Estate",
-  orn: "[RERA ORN]", // número de registro da empresa na RERA (Office Registration Number)
+  legalName: "Webb Prime Real Estate L.L.C",
+  orn: "57080", // número de registro da empresa na RERA (Office Registration Number)
   brn: "[BRN]", // número de corretor do Ramon na RERA (Broker Registration Number)
   address: "[Office address], Dubai, UAE",
   email: "info@webbprimerealestate.com",

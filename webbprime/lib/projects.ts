@@ -16,7 +16,7 @@ export type Project = {
   highlights: LL;
 };
 
-export const PROJECTS: Project[] = [
+export const ALL_PROJECTS: Project[] = [
   {
     slug: "sunset-bay-grand",
     name: "Sunset Bay Grand",
@@ -77,7 +77,16 @@ export const PROJECTS: Project[] = [
   },
 ];
 
+// Em Dubai, todo anúncio de imóvel precisa do permit da RERA (Trakheesi). Projeto sem permit preenchido
+// fica fora do site (home, menu, rodapé, lista, páginas e sitemap) até o número chegar.
+export const PROJECTS: Project[] = ALL_PROJECTS.filter((p) => !p.permit.includes("["));
+
 export const P_UI = {
+  soon: {
+    en: "New projects are being added. Contact us for the current selection.",
+    pt: "Novos projetos estão sendo adicionados. Fale com a gente para ver a seleção atual.",
+    es: "Estamos agregando nuevos proyectos. Contáctenos para ver la selección actual.",
+  } as L,
   title: { en: "Projects in Dubai", pt: "Projetos em Dubai", es: "Proyectos en Dubái" } as L,
   lead: {
     en: "A short selection of off-plan and ready projects. Ask us for the full price list and the units available today.",

@@ -52,7 +52,7 @@ export default async function About({ params }: P) {
           </div>
           <div>
             {ABOUT.broker[lang].split("\n\n").map((para) => <p className="body-lg" key={para.slice(0, 20)}>{para}</p>)}
-            <p className="muted" style={{ fontSize: 14 }}>BRN {SITE.brn}</p>
+            {!SITE.brn.includes("[") && <p className="muted" style={{ fontSize: 14 }}>BRN {SITE.brn}</p>}
           </div>
         </div>
       </section>

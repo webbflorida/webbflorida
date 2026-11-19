@@ -31,7 +31,6 @@ export default async function LangLayout({ children, params }: { children: React
         )}
       </head>
       <body>
-        <div className="preview">{UI[lang].preview}</div>
         <SourceTracker />
         {children}
       </body>

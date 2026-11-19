@@ -18,6 +18,9 @@ export default async function Projects({ params }: P) {
     <Shell lang={lang} path="/projects/">
       <PageHero lang={lang} title={P_UI.title[lang]} lead={P_UI.lead[lang]} />
       <section className="sec" style={{ paddingTop: 40 }}>
+        {PROJECTS.length === 0 && (
+          <div className="wrap"><p className="body-lg"><a href={`/${lang}/contact/`}>{P_UI.soon[lang]}</a></p></div>
+        )}
         <div className="wrap markets">
           {PROJECTS.map((p) => (
             <a className="market" key={p.slug} href={`/${lang}/projects/${p.slug}/`}>

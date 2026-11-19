@@ -1,6 +1,6 @@
 // Fotos do site. Enquanto `src` estiver vazio, aparece um espaço reservado com a dica de qual foto vai ali.
 // Para trocar: salve a imagem em public/photos/ e preencha o src (ex.: "/photos/hero.jpg").
-export const SHOW_PHOTO_HINTS = true;
+export const SHOW_PHOTO_HINTS = false;
 
 export type Slot = { src: string; hint: string; alt: string };
 

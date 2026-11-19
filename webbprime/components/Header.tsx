@@ -1,10 +1,11 @@
 import { LOCALES, type Locale } from "@/lib/site";
 import { UI } from "@/lib/ui";
+import { PROJECTS } from "@/lib/projects";
 
 export default function Header({ lang, path }: { lang: Locale; path: string }) {
   const t = UI[lang];
   const links = [
-    { href: `/${lang}/projects/`, label: t.nav.projects },
+    ...(PROJECTS.length ? [{ href: `/${lang}/projects/`, label: t.nav.projects }] : []),
     { href: `/${lang}/invest/`, label: t.nav.invest },
     { href: `/${lang}/golden-visa/`, label: t.nav.visa },
     { href: `/${lang}/about/`, label: t.nav.about },

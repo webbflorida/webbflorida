@@ -13,14 +13,16 @@ export default function Footer({ lang }: { lang: Locale }) {
             <p style={{ marginTop: 12, maxWidth: "34ch" }}>{t.footer.tagline}</p>
             <p>{!SITE.address.includes("[") && <>{SITE.address}<br /></>}<a href={`tel:${SITE.phoneE164}`}>{SITE.phone}</a><br /><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
           </div>
-          <div>
-            <h4>{t.nav.projects}</h4>
-            <ul>
-              {PROJECTS.map((p) => (
-                <li key={p.slug}><a href={`/${lang}/projects/${p.slug}/`}>{p.name}</a></li>
-              ))}
-            </ul>
-          </div>
+          {PROJECTS.length > 0 && (
+            <div>
+              <h4>{t.nav.projects}</h4>
+              <ul>
+                {PROJECTS.map((p) => (
+                  <li key={p.slug}><a href={`/${lang}/projects/${p.slug}/`}>{p.name}</a></li>
+                ))}
+              </ul>
+            </div>
+          )}
           <div>
             <h4>Dubai</h4>
             <ul>

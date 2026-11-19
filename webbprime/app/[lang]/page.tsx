@@ -41,6 +41,7 @@ export default async function Home({ params }: P) {
         </div>
       </section>
 
+      {PROJECTS.length > 0 && (
       <section className="sec sec-alt">
         <div className="wrap">
           <div className="head"><p className="eyebrow" style={{ margin: 0 }}>{HOME.projectsTitle[lang]}</p><a href={`/${lang}/projects/`}>{t.cta.allProjects}</a></div>
@@ -58,6 +59,7 @@ export default async function Home({ params }: P) {
           </div>
         </div>
       </section>
+      )}
 
       <section className="sec">
         <div className="wrap">
