@@ -768,6 +768,11 @@ export const ABOUT = {
       es: "Webb Florida Realty forma parte de WEBB, con operaciones en Brasil, Estados Unidos y los Emiratos Árabes Unidos. El origen de WEBB se remonta a 2008, con la fundación de Webb Imóveis, una de las primeras inmobiliarias de la región en presentar sus propiedades en internet.",
     },
   ] as L[],
+  photo2008: {
+    en: "Webb Imóveis, Brazil, where WEBB began in 2008",
+    pt: "Webb Imóveis, no Brasil, onde a WEBB começou em 2008",
+    es: "Webb Imóveis, en Brasil, donde WEBB comenzó en 2008",
+  } as L,
   story: [
     {
       k: { en: "Brazil · 2008", pt: "Brasil · 2008", es: "Brasil · 2008" } as L,

@@ -9,5 +9,6 @@ export const MEDIA: Record<string, Slot> = {
   orlando: { src: "", hint: "Orlando: vista aérea de lago e casas em Windermere ou Dr. Phillips", alt: "Orlando" },
   miami: { src: "", hint: "Miami: skyline e baía ao entardecer", alt: "Miami" },
   ramon: { src: "", hint: "Retrato profissional do Ramon (vertical)", alt: "Ramon Brandão" },
+  webb2008: { src: "/photos/webb-imoveis-brasil.jpg", hint: "Fachada da Webb Imóveis no Brasil", alt: "Fachada da Webb Imóveis no Brasil" },
   story: { src: "", hint: "Foto ampla: interior de alto padrão ou detalhe de arquitetura", alt: "Webb" },
 };
