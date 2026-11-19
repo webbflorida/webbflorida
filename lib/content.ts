@@ -68,9 +68,9 @@ export const HOME = {
   ],
   listingsTitle: { en: "Selected homes", pt: "Imóveis selecionados", es: "Propiedades seleccionadas" } as L,
   listingsSoon: {
-    en: "Our curated selection and full MLS search are being connected. In the meantime, tell us what you are looking for and we will send a private shortlist.",
-    pt: "A nossa seleção e a busca completa na MLS estão sendo conectadas. Enquanto isso, conte o que procura e enviamos uma seleção privada.",
-    es: "Nuestra selección y la búsqueda completa en la MLS se están conectando. Mientras tanto, cuéntenos qué busca y le enviamos una selección privada.",
+    en: "Tell us what you are looking for and we will send a private shortlist.",
+    pt: "Conte o que procura e enviamos uma seleção privada.",
+    es: "Cuéntenos qué busca y le enviamos una selección privada.",
   } as L,
   servicesTitle: { en: "Advisory", pt: "Assessoria", es: "Asesoría" } as L,
   areasTitle: { en: "Where we work", pt: "Onde atuamos", es: "Dónde trabajamos" } as L,
@@ -840,8 +840,8 @@ export const CONTACT = {
 export const HOMES = {
   title: { en: "Homes for sale", pt: "Imóveis à venda", es: "Propiedades en venta" } as L,
   lead: {
-    en: "Full MLS search for Orlando and Miami is being connected.",
-    pt: "A busca completa na MLS de Orlando e Miami está sendo conectada.",
-    es: "La búsqueda completa en la MLS de Orlando y Miami se está conectando.",
+    en: "New construction sold by the builders in Orlando and Miami, and homes listed by our team.",
+    pt: "Imóveis de construtoras em Orlando e Miami e imóveis anunciados pelo nosso time.",
+    es: "Propiedades de constructoras en Orlando y Miami y propiedades listadas por nuestro equipo.",
   } as L,
 };
