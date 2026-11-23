@@ -5,16 +5,21 @@ type L = Record<Locale, string>;
 // Imóveis de construção nova divulgados pela Webb (casas prontas vendidas pela construtora).
 // Regra do Ramon: sem endereço, sem nome da construtora e sem nome da comunidade.
 // Preços conferidos no site da construtora na data em `checked`. Atualizar ou remover quando mudar.
+// Regra do Ramon (19/11/2026): antes de publicar ou mudar um preço, conferir o valor atual numa página pública
+// (MLS, Realtor.com ou Redfin) pelo endereço. Conferência semanal. Nunca citar a fonte no anúncio.
+// kind "listing" = imóvel usado anunciado pela própria Webb Florida Realty (listing nosso no MLS).
 export type Featured = {
   slug: string;
+  kind?: "new" | "listing";
+  yearBuilt?: number;
   city: L;
   title: L;
   price: number;
   beds: number;
   baths: L;
   sqft: number;
-  garage: L;
-  floors: number;
+  garage?: L;
+  floors?: number;
   desc: L;
   features: L[];
   photos: { src: string; caption: L; model?: boolean }[];
@@ -22,6 +27,33 @@ export type Featured = {
 };
 
 export const FEATURED: Featured[] = [
+  {
+    slug: "windermere-4-quartos-piscina",
+    kind: "listing",
+    yearBuilt: 2018,
+    city: { en: "Windermere", pt: "Windermere", es: "Windermere" },
+    title: { en: "Renovated 4-bedroom home with heated pool", pt: "Casa de 4 quartos reformada, com piscina aquecida", es: "Casa de 4 habitaciones renovada, con piscina climatizada" },
+    price: 1153000,
+    beds: 4,
+    baths: { en: "3 full + half bath", pt: "3 completos + lavabo", es: "3 completos + medio baño" },
+    sqft: 2665,
+    desc: {
+      en: "Single-family home in Windermere, built in 2018 and fully renovated in 2026. The kitchen has custom millwork and a quartz island, and the primary bath has a freestanding tub. Porcelain and laminate floors, LED lighting, Italian wallpaper and wood wall paneling throughout. Outside: a new heated pool, covered lanai, artificial turf, pavers and a fence. Sold furnished and decorated.",
+      pt: "Casa em Windermere, construída em 2018 e reformada por completo em 2026. A cozinha tem marcenaria sob medida e ilha de quartzo, e o banheiro da suíte principal tem banheira de apoio (freestanding). Pisos de porcelanato e laminado, iluminação LED, papel de parede italiano e painéis de madeira. Na área externa: piscina aquecida nova, varanda coberta (lanai), grama sintética, pavers e cerca. Vendida mobiliada e decorada.",
+      es: "Casa en Windermere, construida en 2018 y renovada por completo en 2026. La cocina tiene carpintería a medida e isla de cuarzo, y el baño principal tiene bañera exenta. Pisos de porcelanato y laminado, iluminación LED, papel tapiz italiano y paneles de madera. Afuera: piscina climatizada nueva, lanai cubierto, césped sintético, pavers y cerca. Se vende amueblada y decorada.",
+    },
+    features: [
+      { en: "Sold furnished and decorated", pt: "Vendida mobiliada e decorada", es: "Se vende amueblada y decorada" },
+      { en: "New heated pool", pt: "Piscina aquecida nova", es: "Piscina climatizada nueva" },
+      { en: "Kitchen with custom millwork and quartz island", pt: "Cozinha com marcenaria sob medida e ilha de quartzo", es: "Cocina con carpintería a medida e isla de cuarzo" },
+      { en: "Primary bath with freestanding tub", pt: "Suíte principal com banheira freestanding", es: "Baño principal con bañera exenta" },
+      { en: "Covered lanai, turf and pavers", pt: "Varanda coberta, grama sintética e pavers", es: "Lanai cubierto, césped sintético y pavers" },
+      { en: "LED lighting, Italian wallpaper and wood paneling", pt: "Iluminação LED, papel de parede italiano e painéis de madeira", es: "Iluminación LED, papel tapiz italiano y paneles de madera" },
+    ],
+    // Fotos profissionais pendentes: Ramon coloca no Drive (08 - 12989 > 05 - Fotos depois) e elas entram em /public/homes/windermere-4-quartos-piscina/.
+    photos: [],
+    checked: "2026-11-19",
+  },
   {
     slug: "horizon-west-3-quartos",
     city: { en: "Horizon West · Winter Garden", pt: "Horizon West · Winter Garden", es: "Horizon West · Winter Garden" },
