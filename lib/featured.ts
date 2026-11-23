@@ -23,6 +23,8 @@ export type Featured = {
   desc: L;
   features: L[];
   photos: { src: string; caption: L; model?: boolean }[];
+  // Até 4 destaques curtos mostrados em faixa logo abaixo dos números da casa.
+  spotlights?: { title: L; text: L }[];
   checked: string;
 };
 
@@ -55,8 +57,30 @@ export const FEATURED: Featured[] = [
       { en: "Italian wallpaper, wood paneling and LED lighting", pt: "Papel de parede italiano, painéis de madeira e iluminação LED", es: "Papel tapiz italiano, paneles de madera e iluminación LED" },
       { en: "Community pool and playground", pt: "Piscina e playground na comunidade", es: "Piscina y área de juegos en la comunidad" },
     ],
-    // Fotos profissionais pendentes: Ramon coloca no Drive (08 - 12989 > 05 - Fotos depois) e elas entram em /public/homes/windermere-4-quartos-piscina/.
-    photos: [],
+    // Fotos enviadas pelo Ramon em 23/11/2026. A do lavabo ficou de fora (reflexo de quem fotografou no espelho).
+    photos: [
+      { src: "/homes/windermere-4-quartos-piscina/fundos-piscina.jpg", caption: { en: "Back of the home with the heated pool", pt: "Fundos da casa com a piscina aquecida", es: "Parte trasera con la piscina climatizada" } },
+      { src: "/homes/windermere-4-quartos-piscina/piscina.jpg", caption: { en: "Private pool and backyard", pt: "Piscina privativa e jardim", es: "Piscina privada y jardín" } },
+      { src: "/homes/windermere-4-quartos-piscina/lanai.jpg", caption: { en: "Covered lanai", pt: "Varanda coberta (lanai)", es: "Lanai cubierto" } },
+      { src: "/homes/windermere-4-quartos-piscina/sala-cozinha.jpg", caption: { en: "Living room and kitchen", pt: "Sala de estar e cozinha", es: "Sala y cocina" } },
+      { src: "/homes/windermere-4-quartos-piscina/jantar.jpg", caption: { en: "Dining area", pt: "Sala de jantar", es: "Comedor" } },
+      { src: "/homes/windermere-4-quartos-piscina/cozinha.jpg", caption: { en: "Custom kitchen with island", pt: "Cozinha sob medida com ilha", es: "Cocina a medida con isla" } },
+      { src: "/homes/windermere-4-quartos-piscina/sala.jpg", caption: { en: "Living room", pt: "Sala de estar", es: "Sala" } },
+      { src: "/homes/windermere-4-quartos-piscina/loft.jpg", caption: { en: "Upstairs living area", pt: "Sala íntima no andar de cima", es: "Sala en el segundo piso" } },
+      { src: "/homes/windermere-4-quartos-piscina/sala-tv.jpg", caption: { en: "Media room", pt: "Sala de TV", es: "Sala de TV" } },
+      { src: "/homes/windermere-4-quartos-piscina/quarto-1.jpg", caption: { en: "Bedroom", pt: "Quarto", es: "Habitación" } },
+      { src: "/homes/windermere-4-quartos-piscina/closet.jpg", caption: { en: "Walk-in closet", pt: "Closet", es: "Vestidor" } },
+      { src: "/homes/windermere-4-quartos-piscina/banheiro-suite.jpg", caption: { en: "Primary bath", pt: "Banheiro da suíte principal", es: "Baño principal" } },
+      { src: "/homes/windermere-4-quartos-piscina/quarto-2.jpg", caption: { en: "Bedroom", pt: "Quarto", es: "Habitación" } },
+      { src: "/homes/windermere-4-quartos-piscina/quarto-3.jpg", caption: { en: "Bedroom", pt: "Quarto", es: "Habitación" } },
+      { src: "/homes/windermere-4-quartos-piscina/piscina-noite.jpg", caption: { en: "Pool at night", pt: "Piscina à noite", es: "Piscina de noche" } },
+    ],
+    spotlights: [
+      { title: { en: "Heated pool", pt: "Piscina aquecida", es: "Piscina climatizada" }, text: { en: "Private, 28 x 15 ft, facing the backyard", pt: "Privativa, 8,5 x 4,5 m, voltada para o jardim", es: "Privada, 8,5 x 4,5 m, frente al jardín" } },
+      { title: { en: "Disney fireworks", pt: "Fogos da Disney", es: "Fuegos de Disney" }, text: { en: "Visible from the primary suite", pt: "Vistos da suíte principal", es: "Visibles desde la suite principal" } },
+      { title: { en: "Furnished", pt: "Mobiliada", es: "Amueblada" }, text: { en: "Sold furnished and decorated", pt: "Vendida mobiliada e decorada", es: "Se vende amueblada y decorada" } },
+      { title: { en: "Guest suite", pt: "Suíte de hóspedes", es: "Suite de huéspedes" }, text: { en: "On the ground floor, with its own bath", pt: "No térreo, com banheiro próprio", es: "En la planta baja, con baño propio" } },
+    ],
     checked: "2026-11-19",
   },
   {
