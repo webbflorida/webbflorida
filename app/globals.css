@@ -372,3 +372,6 @@ p{margin:0 0 1em}
 .mls-search select{font:inherit;font-size:15px;letter-spacing:0;text-transform:none;color:var(--ink,inherit);background:transparent;border:0;border-bottom:1px solid var(--line);padding:8px 0;border-radius:0}
 .mls-search .btn{flex:0 0 auto}
 @media (max-width:640px){.mls-search{padding:16px}.mls-search .btn{width:100%}}
+
+/* Imobiliária do anúncio (exigência do IDX): bem discreta, mas legível (Ramon, 23/11/2026). */
+.idx-by{margin:6px 0 0;font-size:11px;letter-spacing:.02em;color:var(--muted);opacity:.6}
