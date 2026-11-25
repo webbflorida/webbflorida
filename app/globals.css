@@ -296,7 +296,7 @@ p{margin:0 0 1em}
 .areas-top .markets{margin-top:0}
 
 /* regiões e bairros */
-.area-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px;margin-top:8px}
+.area-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:32px;margin-top:8px}
 .area-card{display:block;text-decoration:none;color:inherit}
 .area-card-photo{aspect-ratio:4/5;overflow:hidden;margin-bottom:18px}
 .area-card-photo .photo{transition:transform .8s ease}
