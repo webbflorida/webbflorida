@@ -5,6 +5,7 @@ export default function Header({ lang, path }: { lang: Locale; path: string }) {
   const t = UI[lang];
   const links = [
     { href: `/${lang}/homes/`, label: t.nav.homes },
+    { href: `/${lang}/developments/`, label: t.nav.developments },
     { href: `/${lang}/areas/`, label: t.nav.areas },
     { href: `/${lang}/guides/`, label: t.nav.guides },
     { href: `/${lang}/about/`, label: t.nav.about },

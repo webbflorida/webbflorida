@@ -6,6 +6,8 @@ import { UI } from "@/lib/ui";
 import { HOME, HOMES } from "@/lib/content";
 import { getListings, MLS_READY, type Search } from "@/lib/mls";
 import { FEATURED } from "@/lib/featured";
+import { DEVELOPMENTS } from "@/lib/developments";
+import { DEV_T } from "@/lib/developments-ui";
 
 type P = { params: Promise<{ lang: string }>; searchParams?: Promise<Record<string, string | undefined>> };
 
@@ -19,8 +21,10 @@ const num = (v?: string) => (v && /^\d+$/.test(v) ? Number(v) : undefined);
 export default async function Homes({ params, searchParams }: P) {
   const lang = await getLang(params);
   const sp = (await searchParams) ?? {};
+  // Região escolhida no topo da página: Orlando (MLS Stellar) ou Miami (MLS Miami + lançamentos).
+  const region = sp.city === "miami" ? "miami" : sp.city === "orlando" || sp.city === "stellar" ? "orlando" : undefined;
   const search: Search = {
-    mls: sp.city === "miami" || sp.city === "stellar" ? sp.city : undefined,
+    mls: region === "miami" ? "miami" : region === "orlando" ? "stellar" : undefined,
     minPrice: num(sp.min),
     maxPrice: num(sp.max),
     beds: num(sp.beds),
@@ -62,7 +66,29 @@ export default async function Homes({ params, searchParams }: P) {
   return (
     <Shell lang={lang} path="/homes/">
       <PageHero lang={lang} title={HOMES.title[lang]} lead={HOMES.lead[lang]} />
-      {[
+      <section className="sec" style={{ paddingTop: 40, paddingBottom: 0 }}>
+        <div className="wrap">
+          <nav className="region-tabs" aria-label={L.f.city}>
+            {[
+              { k: undefined, label: { en: "All", pt: "Todos", es: "Todos" }[lang] },
+              { k: "orlando", label: "Orlando" },
+              { k: "miami", label: "Miami" },
+            ].map((r) => (
+              <a key={r.label} href={`/${lang}/homes/${r.k ? `?city=${r.k}` : ""}`} aria-current={region === r.k ? "page" : undefined}>{r.label}</a>
+            ))}
+          </nav>
+          {MLS_READY && (
+            <form className="mls-search" style={{ marginTop: 24, marginBottom: 0 }} method="get" action={`/${lang}/homes/`}>
+              <label>{L.f.city}<select name="city" defaultValue={region ?? ""}><option value="">{L.f.all}</option><option value="orlando">Orlando</option><option value="miami">Miami</option></select></label>
+              <label>{L.f.min}<select name="min" defaultValue={search.minPrice ? String(search.minPrice) : ""}><option value="">{L.f.any}</option>{[400000, 500000, 750000, 1000000, 2000000].map((v) => <option key={v} value={v}>{money.format(v)}</option>)}</select></label>
+              <label>{L.f.max}<select name="max" defaultValue={search.maxPrice ? String(search.maxPrice) : ""}><option value="">{L.f.any}</option>{[500000, 750000, 1000000, 2000000, 5000000].map((v) => <option key={v} value={v}>{money.format(v)}</option>)}</select></label>
+              <label>{L.f.beds}<select name="beds" defaultValue={search.beds ? String(search.beds) : ""}><option value="">{L.f.any}</option>{[1, 2, 3, 4, 5].map((v) => <option key={v} value={v}>{v}+</option>)}</select></label>
+              <button className="btn btn-dark" type="submit">{L.f.go}</button>
+            </form>
+          )}
+        </div>
+      </section>
+      {region !== "miami" && [
         { list: FEATURED.filter((h) => h.kind === "listing"), eyebrow: L.own, note: L.ownNote },
         { list: FEATURED.filter((h) => h.kind !== "listing"), eyebrow: L.nc, note: L.ncNote },
       ].filter((g) => g.list.length > 0).map((g) => (
@@ -87,17 +113,30 @@ export default async function Homes({ params, searchParams }: P) {
           </div>
         </section>
       ))}
+      {region !== "orlando" && (
       <section className="sec">
         <div className="wrap">
-          {MLS_READY && (
-            <form className="mls-search" method="get" action={`/${lang}/homes/`}>
-              <label>{L.f.city}<select name="city" defaultValue={search.mls ?? ""}><option value="">{L.f.all}</option><option value="stellar">Orlando</option><option value="miami">Miami</option></select></label>
-              <label>{L.f.min}<select name="min" defaultValue={search.minPrice ? String(search.minPrice) : ""}><option value="">{L.f.any}</option>{[400000, 500000, 750000, 1000000, 2000000].map((v) => <option key={v} value={v}>{money.format(v)}</option>)}</select></label>
-              <label>{L.f.max}<select name="max" defaultValue={search.maxPrice ? String(search.maxPrice) : ""}><option value="">{L.f.any}</option>{[500000, 750000, 1000000, 2000000, 5000000].map((v) => <option key={v} value={v}>{money.format(v)}</option>)}</select></label>
-              <label>{L.f.beds}<select name="beds" defaultValue={search.beds ? String(search.beds) : ""}><option value="">{L.f.any}</option>{[1, 2, 3, 4, 5].map((v) => <option key={v} value={v}>{v}+</option>)}</select></label>
-              <button className="btn btn-dark" type="submit">{L.f.go}</button>
-            </form>
-          )}
+          <p className="eyebrow">{DEV_T.title[lang]}</p>
+          <div className="area-cards" style={{ marginTop: 24 }}>
+            {DEVELOPMENTS.map((d) => (
+              <a className="area-card" key={d.slug} href={`/${lang}/developments/${d.slug}/`}>
+                <div className="area-card-photo">
+                  {d.photos[0]
+                    ? <img className="photo" src={d.photos[0].src} alt={d.name} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    : <div className="dv-card-ph"><span>{d.name}</span></div>}
+                </div>
+                <h3>{DEV_T.from[lang]} {money.format(d.from)}</h3>
+                <p>{d.name}</p>
+                <p className="muted" style={{ fontSize: 13, marginTop: -8 }}>{d.area[lang]}</p>
+              </a>
+            ))}
+          </div>
+          <p className="pd-legal">{DEV_T.legal[lang]}</p>
+        </div>
+      </section>
+      )}
+      <section className="sec">
+        <div className="wrap">
           {MLS_READY && listings.length === 0 ? (
             <div className="soon"><p>{L.f.none}</p><a className="btn btn-dark" href={`/${lang}/contact/`}>{UI[lang].cta.talk}</a></div>
           ) : listings.length > 0 ? (
