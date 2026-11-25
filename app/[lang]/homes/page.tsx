@@ -65,19 +65,21 @@ export default async function Homes({ params, searchParams }: P) {
   };
   return (
     <Shell lang={lang} path="/homes/">
-      <PageHero lang={lang} title={HOMES.title[lang]} lead={HOMES.lead[lang]} />
+      <PageHero lang={lang} title={region ? `${HOMES.title[lang]} ${{ en: "in", pt: "em", es: "en" }[lang]} ${region === "miami" ? "Miami" : "Orlando"}` : HOMES.title[lang]} lead={HOMES.lead[lang]}>
+        <nav className="region-pick" aria-label={L.f.city}>
+          {[
+            { k: "orlando", label: "Orlando" },
+            { k: "miami", label: "Miami" },
+          ].map((r) => (
+            <a key={r.k} href={`/${lang}/homes/?city=${r.k}`} aria-current={region === r.k ? "page" : undefined}>{r.label}</a>
+          ))}
+          {region && <a className="region-all" href={`/${lang}/homes/`}>{{ en: "See all", pt: "Ver todos", es: "Ver todos" }[lang]}</a>}
+        </nav>
+      </PageHero>
+      {MLS_READY && (
       <section className="sec" style={{ paddingTop: 40, paddingBottom: 0 }}>
         <div className="wrap">
-          <nav className="region-tabs" aria-label={L.f.city}>
-            {[
-              { k: undefined, label: { en: "All", pt: "Todos", es: "Todos" }[lang] },
-              { k: "orlando", label: "Orlando" },
-              { k: "miami", label: "Miami" },
-            ].map((r) => (
-              <a key={r.label} href={`/${lang}/homes/${r.k ? `?city=${r.k}` : ""}`} aria-current={region === r.k ? "page" : undefined}>{r.label}</a>
-            ))}
-          </nav>
-          {MLS_READY && (
+          {(
             <form className="mls-search" style={{ marginTop: 24, marginBottom: 0 }} method="get" action={`/${lang}/homes/`}>
               <label>{L.f.city}<select name="city" defaultValue={region ?? ""}><option value="">{L.f.all}</option><option value="orlando">Orlando</option><option value="miami">Miami</option></select></label>
               <label>{L.f.min}<select name="min" defaultValue={search.minPrice ? String(search.minPrice) : ""}><option value="">{L.f.any}</option>{[400000, 500000, 750000, 1000000, 2000000].map((v) => <option key={v} value={v}>{money.format(v)}</option>)}</select></label>
@@ -88,6 +90,7 @@ export default async function Homes({ params, searchParams }: P) {
           )}
         </div>
       </section>
+      )}
       {region !== "miami" && [
         { list: FEATURED.filter((h) => h.kind === "listing"), eyebrow: L.own, note: L.ownNote },
         { list: FEATURED.filter((h) => h.kind !== "listing"), eyebrow: L.nc, note: L.ncNote },

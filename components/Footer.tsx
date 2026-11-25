@@ -33,6 +33,8 @@ export default function Footer({ lang }: { lang: Locale }) {
             <h4>{t.footer.company}</h4>
             <ul>
               <li><a href={`/${lang}/about/`}>{t.nav.about}</a></li>
+              <li><a href={`/${lang}/homes/`}>{t.nav.homes}</a></li>
+              <li><a href={`/${lang}/developments/`}>{t.nav.developments}</a></li>
               <li><a href={`/${lang}/team/`}>{t.nav.team}</a></li>
               <li><a href={`/${lang}/guides/`}>{t.nav.guides}</a></li>
               <li><a href={`/${lang}/faq/`}>{t.footer.faq}</a></li>

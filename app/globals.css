@@ -453,11 +453,11 @@ p{margin:0 0 1em}
   .dv-team{grid-template-columns:1fr}
 }
 
-/* Imóveis: escolha Orlando / Miami no topo */
-.region-tabs{display:flex;justify-content:center;gap:0;border:1px solid var(--line);background:var(--paper);width:max-content;max-width:100%;margin:0 auto}
-.region-tabs a{padding:14px 32px;text-decoration:none;color:var(--muted);font-size:12px;letter-spacing:.2em;text-transform:uppercase}
-.region-tabs a+a{border-left:1px solid var(--line)}
-.region-tabs a[aria-current="page"]{background:var(--navy);color:#fff}
-.region-tabs a:hover{color:var(--ink)}
-.region-tabs a[aria-current="page"]:hover{color:#fff}
-@media (max-width:640px){.region-tabs{width:100%}.region-tabs a{flex:1;text-align:center;padding:14px 8px}}
+/* Imóveis: escolha Orlando / Miami dentro do topo da página */
+.region-pick{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:32px;flex-wrap:wrap}
+.region-pick a{min-width:150px;padding:14px 28px;border:1px solid var(--navy);color:var(--navy);text-decoration:none;font-size:12px;letter-spacing:.2em;text-transform:uppercase;text-align:center}
+.region-pick a:hover{background:var(--navy);color:#fff}
+.region-pick a[aria-current="page"]{background:var(--navy);color:#fff}
+.region-pick a.region-all{min-width:0;border:0;padding:14px 4px;color:var(--muted);text-decoration:underline;text-underline-offset:4px}
+.region-pick a.region-all:hover{background:none;color:var(--ink)}
+@media (max-width:640px){.region-pick a{flex:1;min-width:0;padding:14px 8px}.region-pick a.region-all{flex-basis:100%}}
