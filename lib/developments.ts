@@ -125,10 +125,10 @@ export const DEVELOPMENTS: Development[] = [
       [t("Landscaping", "Paisagismo", "Paisajismo"), "EDSA"],
     ],
     photos: [
+      { src: "/developments/jem-miami-worldcenter/lounge.jpg", caption: t("Residents' lounge", "Lounge dos moradores", "Lounge de residentes") },
       { src: "/developments/jem-miami-worldcenter/entrada.jpg", caption: t("Arrival", "Entrada", "Entrada") },
       { src: "/developments/jem-miami-worldcenter/cozinha.jpg", caption: t("Kitchen", "Cozinha", "Cocina") },
       { src: "/developments/jem-miami-worldcenter/suite.jpg", caption: t("Bedroom with bay views", "Suíte com vista para a baía", "Dormitorio con vista a la bahía") },
-      { src: "/developments/jem-miami-worldcenter/lounge.jpg", caption: t("Residents' lounge", "Lounge dos moradores", "Lounge de residentes") },
       { src: "/developments/jem-miami-worldcenter/academia.jpg", caption: t("Fitness center", "Academia", "Gimnasio") },
       { src: "/developments/jem-miami-worldcenter/banheiro.jpg", caption: t("Bathroom", "Banheiro", "Baño") },
       { src: "/developments/jem-miami-worldcenter/ringue.jpg", caption: t("Outdoor boxing ring", "Ringue ao ar livre", "Ring al aire libre") },
