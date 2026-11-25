@@ -417,3 +417,38 @@ p{margin:0 0 1em}
   body:has(.pd-bar){padding-bottom:72px}
   body:has(.pd-bar) .wa{display:none}
 }
+
+/* Lançamentos (developments) */
+.gx.n4{grid-template-columns:2fr 1fr;grid-template-rows:166px 166px 166px}
+.gx.n4 .gx-tile:first-child{grid-row:1/4}
+.gx.n3{grid-template-columns:2fr 1fr;grid-template-rows:250px 250px}
+.gx.n3 .gx-tile:first-child{grid-row:1/3}
+.gx.n2{grid-template-columns:1fr 1fr;grid-template-rows:420px}
+.gx.n2 .gx-tile:first-child{grid-row:auto}
+.gx.n1{grid-template-columns:1fr;grid-template-rows:500px}
+.dv-hero{background:var(--navy);color:var(--navy-fg);padding:72px 48px;text-align:center}
+.dv-hero-name{font-family:var(--display);font-size:clamp(30px,4vw,48px);color:#fff;margin:0}
+.dv-hero-note{margin:18px 0 0;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy-muted)}
+.dv-card-ph{width:100%;height:100%;background:var(--navy);display:grid;place-items:center;padding:24px;text-align:center}
+.dv-card-ph span{font-family:var(--display);color:#fff;font-size:24px;line-height:1.25}
+.pd-facts.c4{grid-template-columns:repeat(4,1fr)}
+.dv-table{width:100%;border-collapse:collapse;margin-top:20px}
+.dv-table th,.dv-table td{padding:12px 0;border-bottom:1px solid var(--line);text-align:left;font-weight:400}
+.dv-table td{text-align:right;font-family:var(--display);font-size:20px}
+.dv-pay{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:0;margin-top:20px;border-top:2px solid var(--gold-light)}
+.dv-pay div{padding:18px 16px 18px 0}
+.dv-pay b{display:block;font-family:var(--display);font-weight:400;font-size:30px}
+.dv-pay span{font-size:14px;color:var(--muted)}
+.dv-team{margin:20px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+.dv-team div{padding:12px 0;border-bottom:1px solid var(--line)}
+.dv-team dt{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.dv-team dd{margin:4px 0 0}
+@media (max-width:860px){
+  .gx.n4,.gx.n3{grid-template-columns:1fr 1fr;grid-template-rows:240px 130px}
+  .gx.n4 .gx-tile:first-child,.gx.n3 .gx-tile:first-child{grid-column:1/3;grid-row:auto}
+  .gx.n2,.gx.n1{grid-template-columns:1fr;grid-template-rows:260px}
+  .gx.n2 .gx-tile:nth-child(2){display:none}
+  .pd-facts.c4{grid-template-columns:repeat(2,1fr)}
+  .dv-hero{padding:56px 20px}
+  .dv-team{grid-template-columns:1fr}
+}

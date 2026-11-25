@@ -6,6 +6,8 @@ import { UI } from "@/lib/ui";
 import { HOME, HOMES } from "@/lib/content";
 import { getListings, MLS_READY, type Search } from "@/lib/mls";
 import { FEATURED } from "@/lib/featured";
+import { DEVELOPMENTS } from "@/lib/developments";
+import { DEV_T } from "@/lib/developments-ui";
 
 type P = { params: Promise<{ lang: string }>; searchParams?: Promise<Record<string, string | undefined>> };
 
@@ -87,6 +89,26 @@ export default async function Homes({ params, searchParams }: P) {
           </div>
         </section>
       ))}
+      <section className="sec">
+        <div className="wrap">
+          <p className="eyebrow">{DEV_T.title[lang]}</p>
+          <div className="area-cards" style={{ marginTop: 24 }}>
+            {DEVELOPMENTS.map((d) => (
+              <a className="area-card" key={d.slug} href={`/${lang}/developments/${d.slug}/`}>
+                <div className="area-card-photo">
+                  {d.photos[0]
+                    ? <img className="photo" src={d.photos[0].src} alt={d.name} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    : <div className="dv-card-ph"><span>{d.name}</span></div>}
+                </div>
+                <h3>{DEV_T.from[lang]} {money.format(d.from)}</h3>
+                <p>{d.name}</p>
+                <p className="muted" style={{ fontSize: 13, marginTop: -8 }}>{d.area[lang]}</p>
+              </a>
+            ))}
+          </div>
+          <p className="pd-legal">{DEV_T.legal[lang]}</p>
+        </div>
+      </section>
       <section className="sec">
         <div className="wrap">
           {MLS_READY && (

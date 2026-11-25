@@ -27,7 +27,7 @@ export default function Gallery({ photos, labels }: { photos: Pic[]; labels: Lab
   const shown = photos.slice(0, 5);
   return (
     <>
-      <div className="gx">
+      <div className={`gx n${Math.min(n, 5)}`}>
         {shown.map((p, i) => (
           <button key={p.src} type="button" className="gx-tile" onClick={() => setOpen(i)} aria-label={p.alt}>
             <img src={p.src} alt={p.alt} loading={i === 0 ? "eager" : "lazy"} />
