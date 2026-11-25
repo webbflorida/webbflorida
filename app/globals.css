@@ -452,3 +452,12 @@ p{margin:0 0 1em}
   .dv-hero{padding:56px 20px}
   .dv-team{grid-template-columns:1fr}
 }
+
+/* Imóveis: escolha Orlando / Miami no topo */
+.region-tabs{display:flex;justify-content:center;gap:0;border:1px solid var(--line);background:var(--paper);width:max-content;max-width:100%;margin:0 auto}
+.region-tabs a{padding:14px 32px;text-decoration:none;color:var(--muted);font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.region-tabs a+a{border-left:1px solid var(--line)}
+.region-tabs a[aria-current="page"]{background:var(--navy);color:#fff}
+.region-tabs a:hover{color:var(--ink)}
+.region-tabs a[aria-current="page"]:hover{color:#fff}
+@media (max-width:640px){.region-tabs{width:100%}.region-tabs a{flex:1;text-align:center;padding:14px 8px}}
