@@ -53,6 +53,8 @@ export async function getListings(search: Search = {}, limit = 24): Promise<List
     const f = [
       "StandardStatus eq 'Active'",
       "PropertyType eq 'Residential'",
+      // Só imóveis: fora vaga de barco, terreno e similares (não têm quarto).
+      "BedroomsTotal ge 1",
       `ListPrice ge ${Math.max(s.min, search.minPrice || 0)}`,
     ];
     if (search.maxPrice) f.push(`ListPrice le ${search.maxPrice}`);
