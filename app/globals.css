@@ -235,7 +235,7 @@ p{margin:0 0 1em}
 .market::after{display:none}
 
 /* retrato do broker */
-.portrait{aspect-ratio:4/5;max-width:380px;margin-top:36px}
+.portrait{aspect-ratio:4/5;max-width:200px;margin-top:36px}
 
 /* página de imóvel */
 .pd-gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:260px 260px;gap:8px}
@@ -257,7 +257,7 @@ p{margin:0 0 1em}
 .pd-list{columns:2;padding:0;margin:24px 0 0;list-style:none}
 .pd-list li{padding:10px 0;border-bottom:1px solid var(--line);break-inside:avoid}
 .pd-card{background:var(--paper);border:1px solid var(--line);padding:32px;position:sticky;top:180px}
-.pd-card .portrait{max-width:none;aspect-ratio:1/1;margin:0 0 20px}
+.pd-card .portrait{width:88px;max-width:88px;aspect-ratio:1/1;margin:0 0 16px;border-radius:50%;overflow:hidden}
 .pd-map{height:360px}
 .pd-legal{font-size:12px;color:var(--muted);padding:24px 0 0}
 .tag-preview{display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;border:1px dashed var(--gold);color:var(--gold);padding:6px 12px;margin-bottom:20px}
@@ -468,4 +468,4 @@ p{margin:0 0 1em}
 .mls-details div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid rgba(14,34,56,.12);font-size:15px}
 .mls-details dt{color:var(--muted)}
 .mls-details dd{margin:0;text-align:right}
-.pd-card .portrait .photo{object-position:50% 15%}
+.pd-card .portrait .photo{object-position:50% 20%}
