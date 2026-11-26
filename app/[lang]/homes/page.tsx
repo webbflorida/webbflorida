@@ -4,7 +4,7 @@ import { getLang } from "@/lib/params";
 import { pageMeta } from "@/lib/seo";
 import { UI } from "@/lib/ui";
 import { HOME, HOMES } from "@/lib/content";
-import { getListings, MLS_READY, type Search } from "@/lib/mls";
+import { getListings, listingSlug, MLS_READY, type Search } from "@/lib/mls";
 import { FEATURED } from "@/lib/featured";
 import { DEVELOPMENTS } from "@/lib/developments";
 import { DEV_T } from "@/lib/developments-ui";
@@ -146,11 +146,10 @@ export default async function Homes({ params, searchParams }: P) {
             <>
               <div className="area-cards">
                 {listings.map((h) => (
-                  <a className="area-card" key={h.mls + h.id} href={`/${lang}/contact/`}>
+                  <a className="area-card" key={h.mls + h.id} href={`/${lang}/homes/mls/${listingSlug(h)}/`}>
                     <div className="area-card-photo">{h.photo ? <img src={h.photo} alt={h.street || h.city || ""} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : <div className="ph" />}</div>
                     <h3>{money.format(h.price)}</h3>
                     <p>{[h.city, h.beds != null && `${h.beds} ${L.bd(h.beds)}`, h.baths != null && `${h.baths} ${L.ba(h.baths)}`].filter(Boolean).join(" · ")}</p>
-                    {h.officeName && <p className="listing-office">{L.by} {h.officeName}</p>}
                   </a>
                 ))}
               </div>

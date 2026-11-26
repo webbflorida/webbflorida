@@ -45,6 +45,68 @@ function toListing(mls: Listing["mls"], r: Raw): Listing {
   };
 }
 
+export type ListingDetail = Listing & {
+  photos: string[];
+  remarks?: string;
+  yearBuilt?: number;
+  subType?: string;
+  postal?: string;
+  lotSqft?: number;
+  garage?: number;
+  hoa?: number;
+  hoaFreq?: string;
+  pool?: boolean;
+  waterfront?: boolean;
+  view?: string;
+  stories?: number;
+  tax?: number;
+  taxYear?: number;
+  county?: string;
+  mlsNumber?: string;
+};
+
+// Um imóvel do MLS pelo código (para a página do imóvel).
+export async function getListing(mls: Listing["mls"], key: string): Promise<ListingDetail | null> {
+  const s = SOURCES.find((x) => x.mls === mls);
+  if (!s?.token || !s.dataset || !/^[A-Za-z0-9_-]{1,64}$/.test(key)) return null;
+  const q = new URLSearchParams({
+    access_token: s.token,
+    $top: "1",
+    $filter: `ListingKey eq '${key}' and StandardStatus eq 'Active'`,
+  });
+  try {
+    const res = await fetch(`https://api.bridgedataoutput.com/api/v2/OData/${s.dataset}/Property?${q}`, { next: { revalidate: 3600 } });
+    if (!res.ok) return null;
+    const r = (await res.json()).value?.[0];
+    if (!r) return null;
+    return {
+      ...toListing(mls, r),
+      photos: (r.Media ?? []).map((m: Raw) => m.MediaURL).filter(Boolean),
+      remarks: r.PublicRemarks ?? undefined,
+      yearBuilt: r.YearBuilt ?? undefined,
+      subType: r.PropertySubType ?? undefined,
+      postal: r.PostalCode ?? undefined,
+      lotSqft: r.LotSizeSquareFeet ?? (r.LotSizeAcres ? Math.round(r.LotSizeAcres * 43560) : undefined),
+      garage: r.GarageSpaces ?? r.ParkingTotal ?? undefined,
+      hoa: r.AssociationFee ?? undefined,
+      hoaFreq: r.AssociationFeeFrequency ?? undefined,
+      pool: r.PoolPrivateYN ?? undefined,
+      waterfront: r.WaterfrontYN ?? undefined,
+      view: Array.isArray(r.View) ? r.View.join(", ") : r.View ?? undefined,
+      stories: r.StoriesTotal ?? r.Stories ?? undefined,
+      tax: r.TaxAnnualAmount ?? undefined,
+      taxYear: r.TaxYear ?? undefined,
+      county: r.CountyOrParish ?? undefined,
+      mlsNumber: r.ListingId ?? undefined,
+    };
+  } catch {
+    return null;
+  }
+}
+
+// Endereço público da página do imóvel: /homes/mls/m-KEY/ (Miami) ou s-KEY (Orlando/Stellar).
+export const listingSlug = (l: Pick<Listing, "mls" | "id">) => `${l.mls === "miami" ? "m" : "s"}-${l.id}`;
+
 export async function getListings(search: Search = {}, limit = 24): Promise<Listing[]> {
   const out: Listing[] = [];
   for (const s of SOURCES) {

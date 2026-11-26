@@ -462,5 +462,9 @@ p{margin:0 0 1em}
 .region-pick a.region-all:hover{background:none;color:var(--ink)}
 @media (max-width:640px){.region-pick a{flex:1;min-width:0;padding:14px 8px}.region-pick a.region-all{flex-basis:100%}}
 
-/* Imobiliária do anúncio (exigência IDX): discreta */
-.listing-office{font-size:9px;letter-spacing:.02em;color:#d4cdc1;margin-top:2px}
+
+/* Página do imóvel do MLS: tabela de detalhes */
+.mls-details{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0 32px;margin-top:20px}
+.mls-details div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid rgba(14,34,56,.12);font-size:15px}
+.mls-details dt{color:var(--muted)}
+.mls-details dd{margin:0;text-align:right}
