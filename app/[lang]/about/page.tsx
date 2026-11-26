@@ -32,6 +32,10 @@ export default async function About({ params }: P) {
           <div className="institutional">
             {ABOUT.institutional.map((p) => <p key={p.en}>{p[lang]}</p>)}
           </div>
+          <figure className="tl-photo">
+            <Photo slot="webb2008" />
+            <figcaption>{ABOUT.photo2008[lang]}</figcaption>
+          </figure>
           <ul className="timeline">
             {HOME.familyBrands.map((b) => (
               <li key={b.name}>

@@ -356,6 +356,9 @@ p{margin:0 0 1em}
 .institutional{max-width:62ch;margin:0 auto 72px;font-size:18px;line-height:1.75;color:var(--ink)}
 .institutional p{margin:0 0 1.1em}
 .institutional p:first-child{font-family:var(--display);font-size:clamp(22px,2.2vw,28px);line-height:1.45}
+.tl-photo{max-width:880px;margin:0 auto 48px}
+.tl-photo .photo{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.tl-photo figcaption{margin-top:12px;text-align:center;font-size:14px;letter-spacing:.04em;color:var(--muted)}
 .timeline{list-style:none;margin:0 auto;padding:40px 0 0;border-top:1px solid var(--line);max-width:880px;display:grid;grid-template-columns:repeat(3,1fr);text-align:center}
 .timeline li{display:flex;flex-direction:column;gap:4px;padding:0 16px}
 .timeline li+li{border-left:1px solid var(--line)}
