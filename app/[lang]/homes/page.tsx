@@ -159,8 +159,6 @@ export default async function Homes({ params, searchParams }: P) {
           ) : (
           <div className="soon"><p>{HOME.listingsSoon[lang]}</p><a className="btn btn-dark" href={`/${lang}/contact/`}>{UI[lang].cta.talk}</a></div>
           )}
-          {/* Só na prévia: remover no lançamento. */}
-          <p style={{ textAlign: "center", marginTop: 32 }}><a className="link-cta link-cta-dark" href={`/${lang}/homes/modelo/`}>{{ en: "See the property page layout", pt: "Ver o modelo de página de imóvel", es: "Ver el modelo de página de propiedad" }[lang]}</a></p>
         </div>
       </section>
     </Shell>
