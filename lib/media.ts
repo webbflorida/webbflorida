@@ -8,6 +8,6 @@ export const MEDIA: Record<string, Slot> = {
   hero: { src: "", hint: "Foto ou vídeo em tela cheia: casa de alto padrão ao entardecer, lago em Windermere", alt: "Orlando" },
   orlando: { src: "", hint: "Orlando: vista aérea de lago e casas em Windermere ou Dr. Phillips", alt: "Orlando" },
   miami: { src: "", hint: "Miami: skyline e baía ao entardecer", alt: "Miami" },
-  ramon: { src: "", hint: "Retrato profissional do Ramon (vertical)", alt: "Ramon Brandão" },
+  ramon: { src: "/team/ramon-brandao.jpg", hint: "Retrato profissional do Ramon (vertical)", alt: "Ramon Brandão" },
   story: { src: "", hint: "Foto ampla: interior de alto padrão ou detalhe de arquitetura", alt: "Webb" },
 };
