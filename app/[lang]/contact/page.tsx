@@ -6,6 +6,7 @@ import { SITE, waLink } from "@/lib/site";
 import { UI } from "@/lib/ui";
 import { CONTACT } from "@/lib/content";
 import ContactForm from "@/components/ContactForm";
+import WaIcon from "@/components/WaIcon";
 
 type P = { params: Promise<{ lang: string }> };
 
@@ -33,6 +34,11 @@ export default async function Contact({ params }: P) {
             }}
           />
           <div>
+            <div className="wa-box">
+              <p className="eyebrow">{{ en: "Fastest reply", pt: "Resposta mais rápida", es: "Respuesta más rápida" }[lang]}</p>
+              <p className="body-lg" style={{ margin: "8px 0 20px" }}>{{ en: "Talk to our team now on WhatsApp.", pt: "Fale agora com o nosso time pelo WhatsApp.", es: "Hable ahora con nuestro equipo por WhatsApp." }[lang]}</p>
+              <a className="btn btn-wa" style={{ width: "100%" }} href={waLink(UI[lang].cta.waMsg)} target="_blank" rel="noopener"><WaIcon size={20} /> {UI[lang].cta.whatsapp}</a>
+            </div>
             <p><strong>Webb Florida Realty</strong><br />{!SITE.address.includes("[") && <>{SITE.address}<br /></>}<a href={`tel:${SITE.phoneE164}`}>{SITE.phone}</a><br /><a href={waLink(UI[lang].cta.waMsg)} target="_blank" rel="noopener">WhatsApp</a><br /><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
             <p className="muted">English · Português · Español</p>
           </div>

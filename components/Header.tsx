@@ -1,4 +1,5 @@
-import { LOCALES, type Locale } from "@/lib/site";
+import { LOCALES, waLink, type Locale } from "@/lib/site";
+import WaIcon from "./WaIcon";
 import { UI } from "@/lib/ui";
 
 export default function Header({ lang, path }: { lang: Locale; path: string }) {
@@ -34,13 +35,15 @@ export default function Header({ lang, path }: { lang: Locale; path: string }) {
           <img src="/brand/horizontal_cores-fundo-claro.svg" alt="Webb Florida Realty" width="334" height="78" />
         </a>
         <div className="hdr-right">
-          <a className="btn btn-line" href={`/${lang}/contact/`}>{t.nav.contact}</a>
+          <a className="btn btn-wa hdr-wa" href={waLink(t.cta.waMsg)} target="_blank" rel="noopener"><WaIcon size={18} /> WhatsApp</a>
+          <a className="btn btn-line hdr-contact" href={`/${lang}/contact/`}>{t.nav.contact}</a>
           <details className="menu">
             <summary>Menu</summary>
             <ul>
               {links.map((l) => (
                 <li key={l.href}><a href={l.href}>{l.label}</a></li>
               ))}
+              <li><a href={waLink(t.cta.waMsg)} target="_blank" rel="noopener">WhatsApp</a></li>
               <li><a href={`/${lang}/contact/`}>{t.nav.contact}</a></li>
               <li><div className="langs" style={{ padding: "10px 20px" }}>{langs}</div></li>
             </ul>

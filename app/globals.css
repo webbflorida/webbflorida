@@ -472,3 +472,11 @@ p{margin:0 0 1em}
 .mls-details dt{color:var(--muted)}
 .mls-details dd{margin:0;text-align:right}
 .pd-card .portrait .photo{object-position:50% 20%}
+
+/* WhatsApp em destaque (Ramon 26/11) */
+.wa{width:auto;height:56px;padding:0 22px 0 18px;border-radius:28px;background:var(--wa);border:0;color:#fff;display:flex;align-items:center;gap:10px;font-size:15px;letter-spacing:.04em;text-decoration:none}
+.wa:hover{filter:brightness(1.08)}
+.btn-wa{display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.hdr-wa{padding-left:18px;padding-right:18px}
+.wa-box{border:1px solid rgba(14,34,56,.12);padding:28px;margin-bottom:32px;background:#fff}
+@media (max-width:760px){.wa{width:58px;height:58px;padding:0;justify-content:center;border-radius:50%}.wa-label{display:none}.hdr-contact{display:none}}
