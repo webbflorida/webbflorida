@@ -1,7 +1,7 @@
 import type { Locale } from "./site";
 
 type UI = {
-  nav: { homes: string; areas: string; services: string; guides: string; about: string; team: string; contact: string };
+  nav: { homes: string; developments: string; areas: string; services: string; guides: string; about: string; team: string; contact: string };
   langName: string;
   cta: { talk: string; whatsapp: string; waMsg: string; explore: string; readGuide: string; allGuides: string; allAreas: string; seeHomes: string };
   footer: {
@@ -26,7 +26,7 @@ type UI = {
 
 export const UI: Record<Locale, UI> = {
   en: {
-    nav: { homes: "Homes", areas: "Areas", services: "Advisory", guides: "Guides", about: "Our story", team: "Team", contact: "Contact" },
+    nav: { homes: "Homes", developments: "New developments", areas: "Areas", services: "Advisory", guides: "Guides", about: "Our story", team: "Team", contact: "Contact" },
     langName: "English",
     cta: {
       talk: "Schedule a private consultation",
@@ -58,7 +58,7 @@ export const UI: Record<Locale, UI> = {
     by: "By",
   },
   pt: {
-    nav: { homes: "Imóveis", areas: "Regiões", services: "Assessoria", guides: "Guias", about: "Nossa história", team: "Equipe", contact: "Contato" },
+    nav: { homes: "Imóveis", developments: "Lançamentos", areas: "Regiões", services: "Assessoria", guides: "Guias", about: "Nossa história", team: "Equipe", contact: "Contato" },
     langName: "Português",
     cta: {
       talk: "Agendar uma conversa",
@@ -90,7 +90,7 @@ export const UI: Record<Locale, UI> = {
     by: "Por",
   },
   es: {
-    nav: { homes: "Propiedades", areas: "Zonas", services: "Asesoría", guides: "Guías", about: "Nuestra historia", team: "Equipo", contact: "Contacto" },
+    nav: { homes: "Propiedades", developments: "Lanzamientos", areas: "Zonas", services: "Asesoría", guides: "Guías", about: "Nuestra historia", team: "Equipo", contact: "Contacto" },
     langName: "Español",
     cta: {
       talk: "Agendar una conversación",

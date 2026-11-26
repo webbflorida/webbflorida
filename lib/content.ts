@@ -845,8 +845,8 @@ export const CONTACT = {
 export const HOMES = {
   title: { en: "Homes for sale", pt: "Imóveis à venda", es: "Propiedades en venta" } as L,
   lead: {
-    en: "Full MLS search for Orlando and Miami is being connected.",
-    pt: "A busca completa na MLS de Orlando e Miami está sendo conectada.",
-    es: "La búsqueda completa en la MLS de Orlando y Miami se está conectando.",
+    en: "Homes listed on the MLS, updated throughout the day.",
+    pt: "Imóveis anunciados no MLS, atualizados ao longo do dia.",
+    es: "Propiedades publicadas en el MLS, actualizadas a lo largo del día.",
   } as L,
 };

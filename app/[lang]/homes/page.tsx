@@ -4,8 +4,10 @@ import { getLang } from "@/lib/params";
 import { pageMeta } from "@/lib/seo";
 import { UI } from "@/lib/ui";
 import { HOME, HOMES } from "@/lib/content";
-import { getListings, MLS_READY, type Search } from "@/lib/mls";
+import { getListings, listingSlug, MLS_READY, type Search } from "@/lib/mls";
 import { FEATURED } from "@/lib/featured";
+import { DEVELOPMENTS } from "@/lib/developments";
+import { DEV_T } from "@/lib/developments-ui";
 
 type P = { params: Promise<{ lang: string }>; searchParams?: Promise<Record<string, string | undefined>> };
 
@@ -19,8 +21,10 @@ const num = (v?: string) => (v && /^\d+$/.test(v) ? Number(v) : undefined);
 export default async function Homes({ params, searchParams }: P) {
   const lang = await getLang(params);
   const sp = (await searchParams) ?? {};
+  // Região escolhida no topo da página: Orlando (MLS Stellar) ou Miami (MLS Miami + lançamentos).
+  const region = sp.city === "miami" ? "miami" : sp.city === "orlando" || sp.city === "stellar" ? "orlando" : undefined;
   const search: Search = {
-    mls: sp.city === "miami" || sp.city === "stellar" ? sp.city : undefined,
+    mls: region === "miami" ? "miami" : region === "orlando" ? "stellar" : undefined,
     minPrice: num(sp.min),
     maxPrice: num(sp.max),
     beds: num(sp.beds),
@@ -46,6 +50,12 @@ export default async function Homes({ params, searchParams }: P) {
       pt: "Imóveis vendidos pela construtora. Preços informados pela construtora, sujeitos a alteração.",
       es: "Casas vendidas por el constructor. Precios informados por el constructor, sujetos a cambios.",
     }[lang],
+    own: { en: "For sale by Webb Florida Realty", pt: "À venda pela Webb Florida Realty", es: "En venta por Webb Florida Realty" }[lang],
+    ownNote: {
+      en: "Homes listed by our team. Information deemed reliable but not guaranteed.",
+      pt: "Imóveis anunciados pelo nosso time. Informações consideradas confiáveis, mas não garantidas.",
+      es: "Propiedades listadas por nuestro equipo. Información considerada confiable, pero no garantizada.",
+    }[lang],
     by: { en: "Listed by", pt: "Anunciado por", es: "Listado por" }[lang],
     disc: {
       en: "Listing information is provided by the MLS and deemed reliable but not guaranteed.",
@@ -55,47 +65,91 @@ export default async function Homes({ params, searchParams }: P) {
   };
   return (
     <Shell lang={lang} path="/homes/">
-      <PageHero lang={lang} title={HOMES.title[lang]} lead={HOMES.lead[lang]} />
-      {FEATURED.length > 0 && (
-        <section className="sec">
-          <div className="wrap">
-            <p className="eyebrow">{L.nc}</p>
-            <div className="area-cards" style={{ marginTop: 24 }}>
-              {FEATURED.map((h) => (
-                <a className="area-card" key={h.slug} href={`/${lang}/homes/${h.slug}/`}>
-                  <div className="area-card-photo"><img className="photo" src={h.photos[0].src} alt={h.title[lang]} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} /></div>
-                  <h3>{money.format(h.price)}</h3>
-                  <p>{h.title[lang]}</p>
-                  <p className="muted" style={{ fontSize: 13, marginTop: -8 }}>{h.city[lang]} · {h.sqft.toLocaleString(lang === "en" ? "en-US" : "pt-BR")} sq ft</p>
-                </a>
-              ))}
-            </div>
-            <p className="pd-legal">{L.ncNote}</p>
-          </div>
-        </section>
-      )}
-      <section className="sec">
+      <PageHero lang={lang} title={region ? `${HOMES.title[lang]} ${{ en: "in", pt: "em", es: "en" }[lang]} ${region === "miami" ? "Miami" : "Orlando"}` : HOMES.title[lang]} lead={HOMES.lead[lang]}>
+        <nav className="region-pick" aria-label={L.f.city}>
+          {[
+            { k: "orlando", label: "Orlando" },
+            { k: "miami", label: "Miami" },
+          ].map((r) => (
+            <a key={r.k} href={`/${lang}/homes/?city=${r.k}`} aria-current={region === r.k ? "page" : undefined}>{r.label}</a>
+          ))}
+          {region && <a className="region-all" href={`/${lang}/homes/`}>{{ en: "See all", pt: "Ver todos", es: "Ver todos" }[lang]}</a>}
+        </nav>
+      </PageHero>
+      {MLS_READY && (
+      <section className="sec" style={{ paddingTop: 40, paddingBottom: 0 }}>
         <div className="wrap">
-          {MLS_READY && (
-            <form className="mls-search" method="get" action={`/${lang}/homes/`}>
-              <label>{L.f.city}<select name="city" defaultValue={search.mls ?? ""}><option value="">{L.f.all}</option><option value="stellar">Orlando</option><option value="miami">Miami</option></select></label>
+          {(
+            <form className="mls-search" style={{ marginTop: 24, marginBottom: 0 }} method="get" action={`/${lang}/homes/`}>
+              <label>{L.f.city}<select name="city" defaultValue={region ?? ""}><option value="">{L.f.all}</option><option value="orlando">Orlando</option><option value="miami">Miami</option></select></label>
               <label>{L.f.min}<select name="min" defaultValue={search.minPrice ? String(search.minPrice) : ""}><option value="">{L.f.any}</option>{[400000, 500000, 750000, 1000000, 2000000].map((v) => <option key={v} value={v}>{money.format(v)}</option>)}</select></label>
               <label>{L.f.max}<select name="max" defaultValue={search.maxPrice ? String(search.maxPrice) : ""}><option value="">{L.f.any}</option>{[500000, 750000, 1000000, 2000000, 5000000].map((v) => <option key={v} value={v}>{money.format(v)}</option>)}</select></label>
               <label>{L.f.beds}<select name="beds" defaultValue={search.beds ? String(search.beds) : ""}><option value="">{L.f.any}</option>{[1, 2, 3, 4, 5].map((v) => <option key={v} value={v}>{v}+</option>)}</select></label>
               <button className="btn btn-dark" type="submit">{L.f.go}</button>
             </form>
           )}
+        </div>
+      </section>
+      )}
+      {region !== "miami" && [
+        { list: FEATURED.filter((h) => h.kind === "listing"), eyebrow: L.own, note: L.ownNote },
+        { list: FEATURED.filter((h) => h.kind !== "listing"), eyebrow: L.nc, note: L.ncNote },
+      ].filter((g) => g.list.length > 0).map((g) => (
+        <section className="sec" key={g.eyebrow}>
+          <div className="wrap">
+            <p className="eyebrow">{g.eyebrow}</p>
+            <div className="area-cards" style={{ marginTop: 24 }}>
+              {g.list.map((h) => (
+                <a className="area-card" key={h.slug} href={`/${lang}/homes/${h.slug}/`}>
+                  <div className="area-card-photo">
+                    {h.photos[0]
+                      ? <img className="photo" src={h.photos[0].src} alt={h.title[lang]} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                      : <div className="photo-soon">WEBB</div>}
+                  </div>
+                  <h3>{money.format(h.price)}</h3>
+                  <p>{h.title[lang]}</p>
+                  <p className="muted" style={{ fontSize: 13, marginTop: -8 }}>{h.city[lang]} · {h.sqft.toLocaleString(lang === "en" ? "en-US" : "pt-BR")} sq ft</p>
+                </a>
+              ))}
+            </div>
+            <p className="pd-legal">{g.note}</p>
+          </div>
+        </section>
+      ))}
+      {region !== "orlando" && (
+      <section className="sec">
+        <div className="wrap">
+          <p className="eyebrow">{DEV_T.title[lang]}</p>
+          <div className="area-cards" style={{ marginTop: 24 }}>
+            {DEVELOPMENTS.map((d) => (
+              <a className="area-card" key={d.slug} href={`/${lang}/developments/${d.slug}/`}>
+                <div className="area-card-photo">
+                  {d.photos[0]
+                    ? <img className="photo" src={d.photos[0].src} alt={d.name} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    : <div className="dv-card-ph"><span>{d.name}</span></div>}
+                </div>
+                <h3>{DEV_T.from[lang]} {money.format(d.from)}</h3>
+                <p>{d.name}</p>
+                <p className="muted" style={{ fontSize: 13, marginTop: -8 }}>{d.area[lang]}</p>
+              </a>
+            ))}
+          </div>
+          <p className="pd-legal">{DEV_T.legal[lang]}</p>
+        </div>
+      </section>
+      )}
+      <section className="sec">
+        <div className="wrap">
           {MLS_READY && listings.length === 0 ? (
             <div className="soon"><p>{L.f.none}</p><a className="btn btn-dark" href={`/${lang}/contact/`}>{UI[lang].cta.talk}</a></div>
           ) : listings.length > 0 ? (
             <>
               <div className="area-cards">
                 {listings.map((h) => (
-                  <a className="area-card" key={h.mls + h.id} href={`/${lang}/contact/`}>
+                  <a className="area-card" key={h.mls + h.id} href={`/${lang}/homes/mls/${listingSlug(h)}/`}>
                     <div className="area-card-photo">{h.photo ? <img src={h.photo} alt={h.street || h.city || ""} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : <div className="ph" />}</div>
                     <h3>{money.format(h.price)}</h3>
                     <p>{[h.city, h.beds != null && `${h.beds} ${L.bd(h.beds)}`, h.baths != null && `${h.baths} ${L.ba(h.baths)}`].filter(Boolean).join(" · ")}</p>
-                    {h.officeName && <p className="muted" style={{ fontSize: 12 }}>{L.by} {h.officeName}</p>}
                   </a>
                 ))}
               </div>
@@ -104,8 +158,6 @@ export default async function Homes({ params, searchParams }: P) {
           ) : (
           <div className="soon"><p>{HOME.listingsSoon[lang]}</p><a className="btn btn-dark" href={`/${lang}/contact/`}>{UI[lang].cta.talk}</a></div>
           )}
-          {/* Só na prévia: remover no lançamento. */}
-          <p style={{ textAlign: "center", marginTop: 32 }}><a className="link-cta link-cta-dark" href={`/${lang}/homes/modelo/`}>{{ en: "See the property page layout", pt: "Ver o modelo de página de imóvel", es: "Ver el modelo de página de propiedad" }[lang]}</a></p>
         </div>
       </section>
     </Shell>

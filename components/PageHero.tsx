@@ -1,8 +1,8 @@
 import type { Locale } from "@/lib/site";
 import { UI } from "@/lib/ui";
 
-export default function PageHero({ lang, eyebrow, title, lead, crumbs = [] }: {
-  lang: Locale; eyebrow?: string; title: string; lead?: string; crumbs?: { href: string; label: string }[];
+export default function PageHero({ lang, eyebrow, title, lead, crumbs = [], children }: {
+  lang: Locale; eyebrow?: string; title: string; lead?: string; crumbs?: { href: string; label: string }[]; children?: React.ReactNode;
 }) {
   return (
     <section className="page-hero">
@@ -16,6 +16,7 @@ export default function PageHero({ lang, eyebrow, title, lead, crumbs = [] }: {
         {eyebrow && <p className="eyebrow">{eyebrow}</p>}
         <h1>{title}</h1>
         {lead && <p className="lead">{lead}</p>}
+        {children}
       </div>
     </section>
   );

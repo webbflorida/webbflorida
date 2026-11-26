@@ -5,23 +5,102 @@ type L = Record<Locale, string>;
 // Imóveis de construção nova divulgados pela Webb (casas prontas vendidas pela construtora).
 // Regra do Ramon: sem endereço, sem nome da construtora e sem nome da comunidade.
 // Preços conferidos no site da construtora na data em `checked`. Atualizar ou remover quando mudar.
+// Regra do Ramon (19/11/2026): antes de publicar ou mudar um preço, conferir o valor atual numa página pública
+// (MLS, Realtor.com ou Redfin) pelo endereço. Conferência semanal. Nunca citar a fonte no anúncio.
+// kind "listing" = imóvel usado anunciado pela própria Webb Florida Realty (listing nosso no MLS).
 export type Featured = {
   slug: string;
+  kind?: "new" | "listing";
+  yearBuilt?: number;
   city: L;
   title: L;
   price: number;
   beds: number;
   baths: L;
   sqft: number;
-  garage: L;
-  floors: number;
+  garage?: L;
+  floors?: number;
   desc: L;
   features: L[];
   photos: { src: string; caption: L; model?: boolean }[];
+  // Até 4 destaques curtos mostrados em faixa logo abaixo dos números da casa.
+  spotlights?: { title: L; text: L }[];
   checked: string;
 };
 
 export const FEATURED: Featured[] = [
+  {
+    slug: "windermere-4-quartos-piscina",
+    kind: "listing",
+    yearBuilt: 2018,
+    city: { en: "Windermere", pt: "Windermere", es: "Windermere" },
+    title: { en: "Renovated 4-bedroom home with heated pool", pt: "Casa de 4 quartos reformada, com piscina aquecida", es: "Casa de 4 habitaciones renovada, con piscina climatizada" },
+    price: 1153000,
+    beds: 4,
+    baths: { en: "3 full + half bath", pt: "3 completos + lavabo", es: "3 completos + medio baño" },
+    sqft: 2665,
+    garage: { en: "2 cars", pt: "2 carros", es: "2 autos" },
+    floors: 2,
+    desc: {
+      en: "Two-story home in Windermere, built in 2018 and renovated in 2026, sold furnished and decorated. The ground floor has a guest suite with its own bath, a home office, a separate media room, the living areas and a custom kitchen with a large island, integrated lighting and plenty of storage. Upstairs, the primary suite has a walk-in closet and a bath with a freestanding tub, double vanity and an oversized shower with two showerheads, and the Disney fireworks can be seen from the bedroom. Italian wallpaper, wood paneling, custom window treatments and LED lighting throughout. Outside: a covered lanai and a private heated pool facing the landscaped backyard.",
+      pt: "Casa de dois andares em Windermere, construída em 2018 e reformada em 2026, vendida mobiliada e decorada. No térreo ficam uma suíte de hóspedes com banheiro próprio, escritório, sala de TV separada, as salas de estar e a cozinha sob medida, com ilha grande, iluminação embutida e muito espaço de armário. No andar de cima, a suíte principal tem closet e banheiro com banheira freestanding, bancada com duas pias e box amplo com duas duchas, e do quarto dá para ver os fogos da Disney. Papel de parede italiano, painéis de madeira, cortinas sob medida e iluminação LED em toda a casa. Na área externa: varanda coberta (lanai) e piscina aquecida privativa voltada para o jardim.",
+      es: "Casa de dos pisos en Windermere, construida en 2018 y renovada en 2026, se vende amueblada y decorada. En la planta baja hay una suite de huéspedes con baño propio, oficina, sala de TV independiente, las áreas sociales y una cocina a medida con isla grande, iluminación integrada y mucho almacenamiento. Arriba, la suite principal tiene vestidor y baño con bañera exenta, doble lavabo y ducha amplia con dos regaderas, y desde la habitación se ven los fuegos artificiales de Disney. Papel tapiz italiano, paneles de madera, cortinas a medida e iluminación LED en toda la casa. Afuera: lanai cubierto y piscina climatizada privada frente al jardín.",
+    },
+    features: [
+      { en: "Sold furnished and decorated", pt: "Vendida mobiliada e decorada", es: "Se vende amueblada y decorada" },
+      { en: "Private heated pool (28 x 15 ft)", pt: "Piscina aquecida privativa (8,5 x 4,5 m)", es: "Piscina climatizada privada (8,5 x 4,5 m)" },
+      { en: "Guest suite on the ground floor", pt: "Suíte de hóspedes no térreo", es: "Suite de huéspedes en la planta baja" },
+      { en: "Home office and media room", pt: "Escritório e sala de TV", es: "Oficina y sala de TV" },
+      { en: "Disney fireworks view from the primary suite", pt: "Vista dos fogos da Disney da suíte principal", es: "Vista de los fuegos de Disney desde la suite principal" },
+      { en: "Custom kitchen with large island", pt: "Cozinha sob medida com ilha grande", es: "Cocina a medida con isla grande" },
+      { en: "Primary bath with freestanding tub and double shower", pt: "Banheiro da suíte com banheira freestanding e ducha dupla", es: "Baño principal con bañera exenta y ducha doble" },
+      { en: "Italian wallpaper, wood paneling and LED lighting", pt: "Papel de parede italiano, painéis de madeira e iluminação LED", es: "Papel tapiz italiano, paneles de madera e iluminación LED" },
+      { en: "Community pool and playground", pt: "Piscina e playground na comunidade", es: "Piscina y área de juegos en la comunidad" },
+    ],
+    // Fotos enviadas pelo Ramon em 23/11/2026 (33, sem repetidas). A do lavabo ficou de fora (reflexo de quem fotografou no espelho).
+    photos: [
+      { src: "/homes/windermere-4-quartos-piscina/fundos-piscina.jpg", caption: { en: "Back of the home with the heated pool", pt: "Fundos da casa com a piscina aquecida", es: "Parte trasera con la piscina climatizada" } },
+      { src: "/homes/windermere-4-quartos-piscina/sala-cozinha.jpg", caption: { en: "Living room and kitchen", pt: "Sala de estar e cozinha", es: "Sala y cocina" } },
+      { src: "/homes/windermere-4-quartos-piscina/fachada.jpg", caption: { en: "Front of the home and 2-car garage", pt: "Fachada e garagem para 2 carros", es: "Fachada y garaje para 2 autos" } },
+      { src: "/homes/windermere-4-quartos-piscina/cozinha-ilha.jpg", caption: { en: "Kitchen island", pt: "Ilha da cozinha", es: "Isla de la cocina" } },
+      { src: "/homes/windermere-4-quartos-piscina/jantar.jpg", caption: { en: "Dining area", pt: "Sala de jantar", es: "Comedor" } },
+      { src: "/homes/windermere-4-quartos-piscina/fundos-entardecer.jpg", caption: { en: "Backyard at sunset", pt: "Jardim ao entardecer", es: "Jardín al atardecer" } },
+      { src: "/homes/windermere-4-quartos-piscina/piscina.jpg", caption: { en: "Private pool and backyard", pt: "Piscina privativa e jardim", es: "Piscina privada y jardín" } },
+      { src: "/homes/windermere-4-quartos-piscina/piscina-jardim.jpg", caption: { en: "Pool and landscaped backyard", pt: "Piscina e jardim", es: "Piscina y jardín" } },
+      { src: "/homes/windermere-4-quartos-piscina/lanai.jpg", caption: { en: "Covered lanai", pt: "Varanda coberta (lanai)", es: "Lanai cubierto" } },
+      { src: "/homes/windermere-4-quartos-piscina/lanai-mesa.jpg", caption: { en: "Outdoor dining on the lanai", pt: "Mesa externa no lanai", es: "Comedor exterior en el lanai" } },
+      { src: "/homes/windermere-4-quartos-piscina/hall.jpg", caption: { en: "Entry hall", pt: "Hall de entrada", es: "Vestíbulo de entrada" } },
+      { src: "/homes/windermere-4-quartos-piscina/entrada.jpg", caption: { en: "Entry", pt: "Entrada", es: "Entrada" } },
+      { src: "/homes/windermere-4-quartos-piscina/cozinha.jpg", caption: { en: "Custom kitchen", pt: "Cozinha sob medida", es: "Cocina a medida" } },
+      { src: "/homes/windermere-4-quartos-piscina/jantar-2.jpg", caption: { en: "Dining area with backyard view", pt: "Sala de jantar com vista para o jardim", es: "Comedor con vista al jardín" } },
+      { src: "/homes/windermere-4-quartos-piscina/sala.jpg", caption: { en: "Living room", pt: "Sala de estar", es: "Sala" } },
+      { src: "/homes/windermere-4-quartos-piscina/sala-2.jpg", caption: { en: "Living room opening to the lanai", pt: "Sala com portas para o lanai", es: "Sala con puertas al lanai" } },
+      { src: "/homes/windermere-4-quartos-piscina/sala-tv.jpg", caption: { en: "Media room", pt: "Sala de TV", es: "Sala de TV" } },
+      { src: "/homes/windermere-4-quartos-piscina/escritorio.jpg", caption: { en: "Home office", pt: "Escritório", es: "Oficina" } },
+      { src: "/homes/windermere-4-quartos-piscina/corredor.jpg", caption: { en: "Hallway", pt: "Corredor", es: "Pasillo" } },
+      { src: "/homes/windermere-4-quartos-piscina/escada.jpg", caption: { en: "Staircase with LED lighting", pt: "Escada com iluminação LED", es: "Escalera con iluminación LED" } },
+      { src: "/homes/windermere-4-quartos-piscina/escada-2.jpg", caption: { en: "Staircase", pt: "Escada", es: "Escalera" } },
+      { src: "/homes/windermere-4-quartos-piscina/loft.jpg", caption: { en: "Upstairs living area", pt: "Sala íntima no andar de cima", es: "Sala en el segundo piso" } },
+      { src: "/homes/windermere-4-quartos-piscina/loft-2.jpg", caption: { en: "Upstairs landing", pt: "Hall do andar de cima", es: "Rellano del segundo piso" } },
+      { src: "/homes/windermere-4-quartos-piscina/quarto-1.jpg", caption: { en: "Bedroom", pt: "Quarto", es: "Habitación" } },
+      { src: "/homes/windermere-4-quartos-piscina/quarto-1b.jpg", caption: { en: "Bedroom", pt: "Quarto", es: "Habitación" } },
+      { src: "/homes/windermere-4-quartos-piscina/quarto-2.jpg", caption: { en: "Bedroom", pt: "Quarto", es: "Habitación" } },
+      { src: "/homes/windermere-4-quartos-piscina/quarto-3.jpg", caption: { en: "Bedroom", pt: "Quarto", es: "Habitación" } },
+      { src: "/homes/windermere-4-quartos-piscina/quarto-4.jpg", caption: { en: "Bedroom", pt: "Quarto", es: "Habitación" } },
+      { src: "/homes/windermere-4-quartos-piscina/closet.jpg", caption: { en: "Walk-in closet", pt: "Closet", es: "Vestidor" } },
+      { src: "/homes/windermere-4-quartos-piscina/banheiro-suite.jpg", caption: { en: "Primary bath", pt: "Banheiro da suíte principal", es: "Baño principal" } },
+      { src: "/homes/windermere-4-quartos-piscina/lavanderia.jpg", caption: { en: "Laundry room", pt: "Lavanderia", es: "Lavandería" } },
+      { src: "/homes/windermere-4-quartos-piscina/garagem.jpg", caption: { en: "2-car garage", pt: "Garagem para 2 carros", es: "Garaje para 2 autos" } },
+      { src: "/homes/windermere-4-quartos-piscina/piscina-noite.jpg", caption: { en: "Pool at night", pt: "Piscina à noite", es: "Piscina de noche" } },
+    ],
+    spotlights: [
+      { title: { en: "Heated pool", pt: "Piscina aquecida", es: "Piscina climatizada" }, text: { en: "Private, 28 x 15 ft, facing the backyard", pt: "Privativa, 8,5 x 4,5 m, voltada para o jardim", es: "Privada, 8,5 x 4,5 m, frente al jardín" } },
+      { title: { en: "Disney fireworks", pt: "Fogos da Disney", es: "Fuegos de Disney" }, text: { en: "Visible from the primary suite", pt: "Vistos da suíte principal", es: "Visibles desde la suite principal" } },
+      { title: { en: "Furnished", pt: "Mobiliada", es: "Amueblada" }, text: { en: "Sold furnished and decorated", pt: "Vendida mobiliada e decorada", es: "Se vende amueblada y decorada" } },
+      { title: { en: "Guest suite", pt: "Suíte de hóspedes", es: "Suite de huéspedes" }, text: { en: "On the ground floor, with its own bath", pt: "No térreo, com banheiro próprio", es: "En la planta baja, con baño propio" } },
+    ],
+    checked: "2026-11-19",
+  },
   {
     slug: "horizon-west-3-quartos",
     city: { en: "Horizon West · Winter Garden", pt: "Horizon West · Winter Garden", es: "Horizon West · Winter Garden" },

@@ -3,12 +3,12 @@ import { UI } from "@/lib/ui";
 
 export default function Header({ lang, path }: { lang: Locale; path: string }) {
   const t = UI[lang];
+  // Menu enxuto, organizado por cidade (Ramon 25/11): Regiões, Lançamentos e Equipe ficam dentro das páginas e no rodapé.
   const links = [
-    { href: `/${lang}/homes/`, label: t.nav.homes },
-    { href: `/${lang}/areas/`, label: t.nav.areas },
+    { href: `/${lang}/homes/?city=orlando`, label: "Orlando" },
+    { href: `/${lang}/homes/?city=miami`, label: "Miami" },
     { href: `/${lang}/guides/`, label: t.nav.guides },
     { href: `/${lang}/about/`, label: t.nav.about },
-    { href: `/${lang}/team/`, label: t.nav.team },
   ];
   const langs = (
     <>
@@ -21,7 +21,7 @@ export default function Header({ lang, path }: { lang: Locale; path: string }) {
   );
   const item = (l: { href: string; label: string }) => (
     <li key={l.href}>
-      <a href={l.href} aria-current={`/${lang}${path}`.startsWith(l.href) ? "page" : undefined}>
+      <a href={l.href} aria-current={!l.href.includes("?") && `/${lang}${path}`.startsWith(l.href) ? "page" : undefined}>
         {l.label}
       </a>
     </li>
