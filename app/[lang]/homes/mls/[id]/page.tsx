@@ -96,7 +96,6 @@ export default async function MlsHome({ params }: P) {
   add(T.water, home.waterfront ? T.yes[lang] : undefined);
   add(T.view, trMlsList(home.view, lang));
   add(T.hoa, home.hoa ? `${money.format(home.hoa)}${trMls(home.hoaFreq, lang) ? ` ${trMls(home.hoaFreq, lang)}` : ""}` : undefined);
-  add(T.tax, home.tax ? `${money.format(home.tax)}${home.taxYear ? ` (${home.taxYear})` : ""}` : undefined);
   add(T.county, home.county?.replace(/\s+County$/i, ""));
   add(T.zip, home.postal);
   add(T.mlsNo, home.mlsNumber);
