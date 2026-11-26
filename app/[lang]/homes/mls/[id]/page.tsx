@@ -6,6 +6,7 @@ import { pageMeta } from "@/lib/seo";
 import { UI } from "@/lib/ui";
 import { SITE, isLocale, waLink, type Locale } from "@/lib/site";
 import { getListing, type Listing } from "@/lib/mls";
+import { trMls, trMlsList } from "@/lib/mls-i18n";
 
 // Página de um imóvel do MLS (busca IDX). Gerada sob demanda e guardada por 1 hora.
 export const revalidate = 3600;
@@ -21,7 +22,6 @@ const T = {
   area: { en: "Living area", pt: "Área", es: "Área" } as L,
   built: { en: "Year built", pt: "Ano de construção", es: "Año de construcción" } as L,
   about: { en: "About the property", pt: "Sobre o imóvel", es: "Sobre la propiedad" } as L,
-  orig: { en: "", pt: "Descrição original do anúncio, em inglês.", es: "Descripción original del anuncio, en inglés." } as L,
   card: { en: "Interested in this property?", pt: "Tem interesse neste imóvel?", es: "¿Le interesa esta propiedad?" } as L,
   cardText: { en: "Schedule a visit, in person or by video.", pt: "Agende uma visita, presencial ou por vídeo.", es: "Agende una visita, presencial o por video." } as L,
   visit: { en: "Schedule a visit", pt: "Agendar visita", es: "Agendar visita" } as L,
@@ -71,7 +71,7 @@ async function load(params: P["params"]) {
 export async function generateMetadata({ params }: P) {
   const { lang, id, home } = await load(params);
   const title = [home.street, home.city].filter(Boolean).join(", ");
-  return pageMeta(lang, `/homes/mls/${id}/`, `${title} | Webb Florida Realty`, (home.remarks || title).slice(0, 155));
+  return pageMeta(lang, `/homes/mls/${id}/`, `${title} | Webb Florida Realty`, (lang === "en" && home.remarks ? home.remarks : title).slice(0, 155));
 }
 
 export default async function MlsHome({ params }: P) {
@@ -88,16 +88,16 @@ export default async function MlsHome({ params }: P) {
   if (home.yearBuilt) facts.push([String(home.yearBuilt), T.built[lang]]);
   const det: [string, string][] = [];
   const add = (k: L, v: unknown) => { if (v !== undefined && v !== null && v !== "" && v !== false) det.push([k[lang], String(v)]); };
-  add(T.type, home.subType);
+  add(T.type, trMls(home.subType, lang));
   add(T.lot, home.lotSqft ? `${num.format(home.lotSqft)} sq ft · ${num.format(Math.round(home.lotSqft * 0.092903))} m²` : undefined);
   add(T.garage, home.garage || undefined);
   add(T.stories, home.stories || undefined);
   add(T.pool, home.pool ? T.yes[lang] : undefined);
   add(T.water, home.waterfront ? T.yes[lang] : undefined);
-  add(T.view, home.view);
-  add(T.hoa, home.hoa ? `${money.format(home.hoa)}${home.hoaFreq ? ` (${home.hoaFreq})` : ""}` : undefined);
+  add(T.view, trMlsList(home.view, lang));
+  add(T.hoa, home.hoa ? `${money.format(home.hoa)}${trMls(home.hoaFreq, lang) ? ` ${trMls(home.hoaFreq, lang)}` : ""}` : undefined);
   add(T.tax, home.tax ? `${money.format(home.tax)}${home.taxYear ? ` (${home.taxYear})` : ""}` : undefined);
-  add(T.county, home.county);
+  add(T.county, home.county?.replace(/\s+County$/i, ""));
   add(T.zip, home.postal);
   add(T.mlsNo, home.mlsNumber);
   const pics = home.photos.map((src, i) => ({ src, alt: `${address} · ${T.photo[lang]} ${i + 1}`, caption: `${T.photo[lang]} ${i + 1}` }));
@@ -136,11 +136,10 @@ export default async function MlsHome({ params }: P) {
 
           <div className="pd-body">
             <div>
-              {home.remarks && (
+              {lang === "en" && home.remarks && (
                 <>
                   <h2 style={{ fontSize: 32 }}>{T.about[lang]}</h2>
-                  {T.orig[lang] && <p className="muted" style={{ fontSize: 13, marginTop: 8 }}>{T.orig[lang]}</p>}
-                  <p className="body-lg muted" style={{ marginTop: 20 }} lang="en">{home.remarks}</p>
+                  <p className="body-lg muted" style={{ marginTop: 20 }}>{home.remarks}</p>
                 </>
               )}
               {det.length > 0 && (
