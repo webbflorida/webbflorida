@@ -461,3 +461,6 @@ p{margin:0 0 1em}
 .region-pick a.region-all{min-width:0;border:0;padding:14px 4px;color:var(--muted);text-decoration:underline;text-underline-offset:4px}
 .region-pick a.region-all:hover{background:none;color:var(--ink)}
 @media (max-width:640px){.region-pick a{flex:1;min-width:0;padding:14px 8px}.region-pick a.region-all{flex-basis:100%}}
+
+/* Imobiliária do anúncio (exigência IDX): discreta */
+.listing-office{font-size:10px;letter-spacing:.02em;color:#9a958d;margin-top:2px;opacity:.85}
