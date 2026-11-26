@@ -468,3 +468,4 @@ p{margin:0 0 1em}
 .mls-details div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid rgba(14,34,56,.12);font-size:15px}
 .mls-details dt{color:var(--muted)}
 .mls-details dd{margin:0;text-align:right}
+.pd-card .portrait .photo{object-position:50% 15%}
